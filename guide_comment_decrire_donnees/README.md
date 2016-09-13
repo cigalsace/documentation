@@ -6,15 +6,15 @@
 
 Vous ne disposez pas d'outil pour décrire vos données conformément aux obligations de la directive européenne Inspire, mais souhaitez faire connaître vos données en les référençant sur la plateforme CIGAL, ainsi que sur le géocatalogue national.
 
-## [Définitions](#definitions)
+## [Définitions](#définitions)
 
-### [Base de données](#base-de-donnees)
+### [Base de données](#base-de-données)
 
 Les données sont généralement organisées en base de données. Nous utiliserons ici indifféremment les termes de base de données et jeux de données pour désigner un ensemble structuré de données géographiques sous forme de fichier (ex. : SHP, KML, etc.) ou selon une organisation plus complexe sous forme de base de données relationnelle.
 
 La granularité ou niveau auquel le jeu de données est décrit est laissé à l'appréciation du gestionnaire des données. Il est cependant recommandé de décrire les jeux de données au niveau de la « couche d'information » qui doit être cohérente et homogène sur le territoire concerné.
 
-### [Fiche de métadonnées](#fiche-de-metadonnees)
+### [Fiche de métadonnées](#fiche-de-metadonnées)
 
 La description d'un jeu de données donne lieu à la rédaction d'une fiche de métadonnées. Il s'agit d'un document recueillant les principales informations sur la base de données : titre, résumé, auteur, gestionnaire, échelle d'utilisation, etc. Il s'accompagne également de ressources annexes, comme une illustration, un document de licence, le logo d'un contact, la liste des attributs et leur signification, etc.
 
@@ -39,7 +39,7 @@ Cette démarche s'appuie sur les outils suivants :
 Avant de poursuivre, vous devez disposer d'un identifiant et d'un mot de passe pour vous connecter à la plateforme CIGAL, ainsi que d'un espace de stockage sur Pydio.
 **Si ce n'est pas le cas, les chefs de projet CIGAL sont à votre disposition.**
 
-## [Procédure](#procedure)
+## [Procédure](#procédure)
 
 ### [Placer les fichiers ressources sur le serveur CIGAL](#placer-les-fichiers-ressources-sur-le-serveur-cigal)
 
@@ -66,7 +66,7 @@ Les fichiers ainsi déposés sur la plateforme CIGAL sont alors disponibles via 
 - _Créer un répertoire pour chaque type de ressources transversales comme par exemple les logos qui sont utilisés par différentes fiches descriptives._
 - _Créer un répertoire par jeu de données pour y placer les éléments spécifiques (illustration, document technique, liste des attributs de la couche, etc.)_
 
-### [Décrire le jeu de données](#decrire-le-jeu-de-donnees)
+### [Décrire le jeu de données](#décrire-le-jeu-de-données)
 
 La description du jeu de données peut être réalisée assez simplement directement en ligne via mdEdit. L'accès à cette application ne nécessite pas d'authentification. Il vous suffit de vous rendre à l'adresse suivante : <https://www.cigalsace.org/tools/mdEdit/>
 
@@ -91,6 +91,6 @@ mdEdit permet également de recharger une fiche descriptive au format XML :
 
 Il est ainsi possible de créer une fiche partiellement remplie et de la réutiliser comme un modèle pour saisir de nouvelles fiches.
 
-### [Déposer la fiche au format XML sur le serveur CIGAL](#deposer-la-fiche-au-format-xml-sur-le-serveur-cigal)
+### [Déposer la fiche au format XML sur le serveur CIGAL](#déposer-la-fiche-au-format-xml-sur-le-serveur-cigal)
 
 Le dépôt du fichier XML sur le serveur CIGAL se fait via Pydio selon le même principe que le dépôt des fichiers ressources expliqué ci-dessus.
