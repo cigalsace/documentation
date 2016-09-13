@@ -14,7 +14,7 @@ Les données sont généralement organisées en base de données. Nous utilisero
 
 La granularité ou niveau auquel le jeu de données est décrit est laissé à l'appréciation du gestionnaire des données. Il est cependant recommandé de décrire les jeux de données au niveau de la « couche d'information » qui doit être cohérente et homogène sur le territoire concerné.
 
-### [Fiche de métadonnées](#fiche-de-metadonnées)
+### [Fiche de métadonnées](#fiche-de-métadonnées)
 
 La description d'un jeu de données donne lieu à la rédaction d'une fiche de métadonnées. Il s'agit d'un document recueillant les principales informations sur la base de données : titre, résumé, auteur, gestionnaire, échelle d'utilisation, etc. Il s'accompagne également de ressources annexes, comme une illustration, un document de licence, le logo d'un contact, la liste des attributs et leur signification, etc.
 
