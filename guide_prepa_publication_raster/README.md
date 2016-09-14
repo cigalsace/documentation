@@ -121,7 +121,7 @@ Ci-dessous, les BigTiff répondent vraiment bien (ici avec granule d'environ 10 
 
 Les entrepots de type image mosaique réagissent mieux. De plus, ils proposent maintenant une fonctionalité footprints qui permettrait de faire l'économie de la bande alpha. Par contre nous identifions un problème répertorié ici
 https://osgeo-org.atlassian.net/browse/GEOS-6760?attachmentViewMode=list
-Dans le cas d'overview interne il n'est pas possible pour lme moment d'appliqué un footprints couvrant des dalles non pleines. Fonctionnalité décrite ici
+Dans le cas d'overview interne il n'est pas possible pour le moment d'appliquer un footprints couvrant des dalles non pleines. Fonctionnalité décrite ici
 http://docs.geoserver.org/2.8.x/en/user/tutorials/imagemosaic_footprint/imagemosaic_footprint.html#footprint-configured-with-footprints-shp
 
 Enfin, appeler un WMS dans une autre projection différente de celle native de publication ne semble pas trop impactante par rapport aux temps de retour.
