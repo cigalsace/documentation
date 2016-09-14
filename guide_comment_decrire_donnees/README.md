@@ -39,7 +39,7 @@ Cette démarche s'appuie sur les outils suivants :
 Avant de poursuivre, vous devez disposer d'un identifiant et d'un mot de passe pour vous connecter à la plateforme CIGAL, ainsi que d'un espace de stockage sur Pydio.
 **Si ce n'est pas le cas, les chefs de projet CIGAL sont à votre disposition.**
 
-## Procédure {#procédure}
+## Procédure <a id="procédure"></a>
 
 ### [Placer les fichiers ressources sur le serveur CIGAL](#placer-les-fichiers-ressources-sur-le-serveur-cigal)
 
