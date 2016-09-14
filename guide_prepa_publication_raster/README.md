@@ -42,15 +42,15 @@ Cf littérature web pour de plus amples information sur les algorithmes utilisé
 
 A titre d’exemple ci-dessous les variations en volumétrie d’une ortho RVB à 20cm de résolution :
 
-|      Format         |      Taille proportion     |      Volume sur 1 Département     |
-|----------|--------------|--------------|
-|tif (livraison brute)|100%|412 Go|
-|tif tiling overview|142%|585 Go|
-|tif lzw tiling overview|137%|565 Go|
-|tif deflate tiling overview|110%|453 Go|
-|tif deflate alpha tiling overview|119%|490 Go|
-|tif jpeg tiling overview|27%|111 Go|
-|tif jpeg alpha tiling overview|40%|165 Go|
+| Format                        | Taille proportion | Volume sur 1 département |
+|-------------------------------|-------------------|--------------------------|
+| tif(livraisonbrute)           | 100%              | 412Go                    |
+| tiftilingoverview             | 142%              | 585Go                    |
+| tiflzwtilingoverview          | 137%              | 565Go                    |
+| tifdeflatetilingoverview      | 110%              | 453Go                    |
+| tifdeflatealphatilingoverview | 119%              | 490Go                    |
+| tifjpegtilingoverview         | 27%               | 111Go                    |
+| tifjpegalphatilingoverview    | 40%               | 165Go                    |
 
 (Ces résultats ont été obtenus dans les taux de compression par défaut et en rajoutant les inner tiling et overview pour préparer à la publication)
 
