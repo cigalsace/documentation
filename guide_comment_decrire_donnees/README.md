@@ -21,15 +21,15 @@
 
 Vous ne disposez pas d'outil pour décrire vos données conformément aux obligations de la directive européenne Inspire, mais souhaitez faire connaître vos données en les référençant sur la plateforme CIGAL, ainsi que sur le géocatalogue national.
 
-## Définitions <a id="#définitions-"></a>
+## Définitions <a id="définitions-"></a>
 
-### Base de données <a id="#base-de-données-"></a>
+### Base de données <a id="base-de-données-"></a>
 
 Les données sont généralement organisées en base de données. Nous utiliserons ici indifféremment les termes de base de données et jeux de données pour désigner un ensemble structuré de données géographiques sous forme de fichier (ex. : SHP, KML, etc.) ou selon une organisation plus complexe sous forme de base de données relationnelle.
 
 La granularité ou niveau auquel le jeu de données est décrit est laissé à l'appréciation du gestionnaire des données. Il est cependant recommandé de décrire les jeux de données au niveau de la « couche d'information » qui doit être cohérente et homogène sur le territoire concerné.
 
-### Fiche de métadonnées <a id="#fiche-de-métadonnées-"></a>
+### Fiche de métadonnées <a id="fiche-de-métadonnées-"></a>
 
 La description d'un jeu de données donne lieu à la rédaction d'une fiche de métadonnées. Il s'agit d'un document recueillant les principales informations sur la base de données : titre, résumé, auteur, gestionnaire, échelle d'utilisation, etc. Il s'accompagne également de ressources annexes, comme une illustration, un document de licence, le logo d'un contact, la liste des attributs et leur signification, etc.
 
@@ -37,7 +37,7 @@ La directive Inspire propose de standardiser cette description à la fois sur le
 
 Ainsi, à l'issue de votre travail vous disposerez pour chacune de vos données d'un fichier XML contenant l'ensemble des informations décrivant le jeu de données et pointant vers différents fichiers complétant cette description. Ces fichiers associés sont appelés « ressources » dans la suite du document.
 
-## Principes de base <a id="#principes-de-base-"></a>
+## Principes de base <a id="principes-de-base-"></a>
 
 La description d'un jeu de données et sa publication se font en différentes étapes :
 
@@ -56,7 +56,7 @@ Avant de poursuivre, vous devez disposer d'un identifiant et d'un mot de passe p
 
 ## Procédure <a id="procédure-"></a>
 
-### Placer les fichiers ressources sur le serveur CIGAL <a id="#placer-les-fichiers-ressources-sur-le-serveur-cigal-"></a>
+### Placer les fichiers ressources sur le serveur CIGAL <a id="placer-les-fichiers-ressources-sur-le-serveur-cigal-"></a>
 
 Pour vous connecter à Pydio, rendez-vous à l'adresse : <https://www.cigalsace.org/files> Si vous n'êtes pas encore authentifié, saisissez votre identifiant et votre mot de passe avant de valider.
 
@@ -81,7 +81,7 @@ Les fichiers ainsi déposés sur la plateforme CIGAL sont alors disponibles via 
 - _Créer un répertoire pour chaque type de ressources transversales comme par exemple les logos qui sont utilisés par différentes fiches descriptives._
 - _Créer un répertoire par jeu de données pour y placer les éléments spécifiques (illustration, document technique, liste des attributs de la couche, etc.)_
 
-### Décrire le jeu de données <a id="#décrire-le-jeu-de-données-"></a>
+### Décrire le jeu de données <a id="décrire-le-jeu-de-données-"></a>
 
 La description du jeu de données peut être réalisée assez simplement directement en ligne via mdEdit. L'accès à cette application ne nécessite pas d'authentification. Il vous suffit de vous rendre à l'adresse suivante : <https://www.cigalsace.org/tools/mdEdit/>
 
@@ -94,7 +94,7 @@ Il vous suffit alors de compléter le formulaire à partir des informations dont
 **_Liens vers les ressources :_**
 _Les liens vers les ressources déposées sur la plateforme via Pydio doivent être renseignés selon une URL de la forme « <https://www.cigalsace.org/metadata/ORG/REP/ressource.ext> » comme décrit précédemment._
 
-### Exporter la fiche descriptive au format XML <a id="#exporter-la-fiche-descriptive-au-format-xml-"></a>
+### Exporter la fiche descriptive au format XML <a id="exporter-la-fiche-descriptive-au-format-xml-"></a>
 
 Pour exporter la fiche descriptive au format XML, utiliser le bouton en haut à droite.
 
@@ -106,6 +106,6 @@ mdEdit permet également de recharger une fiche descriptive au format XML :
 
 Il est ainsi possible de créer une fiche partiellement remplie et de la réutiliser comme un modèle pour saisir de nouvelles fiches.
 
-### Déposer la fiche au format XML sur le serveur CIGAL <a id="#déposer-la-fiche-au-format-xml-sur-le-serveur-cigal-"></a>
+### Déposer la fiche au format XML sur le serveur CIGAL <a id="déposer-la-fiche-au-format-xml-sur-le-serveur-cigal-"></a>
 
 Le dépôt du fichier XML sur le serveur CIGAL se fait via Pydio selon le même principe que le dépôt des fichiers ressources expliqué ci-dessus.
