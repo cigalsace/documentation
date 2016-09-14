@@ -133,14 +133,14 @@ Enfin, appeler un WMS dans une autre projection différente de celle native de p
 Le tif non compressé est le format qui apporte les meilleures performances. Cependant, une ortho 20cm en tif deflate sur 10 départements pèserait 4.5 To. Un équilibre est donc à trouver.
 
 Dans le cas de la géoplateforme CIGAL nous retenons pour le moment les pistes suivantes:
--Privilégier deflate à lzw
--Image mosaique avec overview interne plutôt que image pyramide (pour des produits types orthophoto HR départementale) et travailler à faire fonctionner convenablement le footprints
--En général nous réservons la qualité optimale (sans perte) à la dernière ortho (par exemple la 2015) et les milésimes plus anciens, les produits dérivés (infrarouge…) sont compressées en JPEG 2000
--L'axe par téléchargement FTP des dalles type Open Data serait privélégié au développement du WCS consommateur pour les servers.
--Le l93 serait prioritaire comme format de publication.
+- Privilégier deflate à lzw
+- Image mosaique avec overview interne plutôt que image pyramide (pour des produits types orthophoto HR départementale) et travailler à faire fonctionner convenablement le footprints
+- En général nous réservons la qualité optimale (sans perte) à la dernière ortho (par exemple la 2015) et les milésimes plus anciens, les produits dérivés (infrarouge…) sont compressées en JPEG 2000
+- L'axe par téléchargement FTP des dalles type Open Data serait privélégié au développement du WCS consommateur pour les servers.
+- Le l93 serait prioritaire comme format de publication.
 
-Reste également à jouer sur les pararamètres Geoserver
+Resterait également à jouer sur les pararamètres Geoserver
 http://fr.slideshare.net/geosolutions/geoserver-on-steroids-foss4g-2015
 (slide 11)
 à exploiter Geowebcache WMTS dans les gridset les plus courament utilisés
-et à encourager pour les viewers les appels image/jpeg (10x moins lourds) sur de petites tuiles.
+et à encourager pour les viewers les appels image/jpeg sur de petites tuiles.
