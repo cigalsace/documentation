@@ -139,8 +139,10 @@ Dans le cas de la géoplateforme CIGAL nous retenons pour le moment les pistes s
 - L'axe par téléchargement FTP des dalles type Open Data serait privélégié au développement du WCS consommateur pour les servers.
 - Le l93 serait prioritaire comme format de publication.
 
-Resterait également à jouer sur les pararamètres Geoserver
+Resterait également:
+
+- à jouer sur les pararamètres Geoserver
 http://fr.slideshare.net/geosolutions/geoserver-on-steroids-foss4g-2015
 (slide 11)
-à exploiter Geowebcache WMTS dans les gridset les plus courament utilisés
-et à encourager pour les viewers les appels image/jpeg sur de petites tuiles.
+- à exploiter Geowebcache WMTS dans les gridset les plus courament utilisés
+- à encourager pour les viewers les appels image/jpeg sur de petites tuiles.
