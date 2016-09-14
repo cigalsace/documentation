@@ -6,7 +6,7 @@
 
 Vous ne disposez pas d'outil pour décrire vos données conformément aux obligations de la directive européenne Inspire, mais souhaitez faire connaître vos données en les référençant sur la plateforme CIGAL, ainsi que sur le géocatalogue national.
 
-## [Définitions][]
+## [Définitions]()
 
 ### [Base de données](#base-de-données)
 
