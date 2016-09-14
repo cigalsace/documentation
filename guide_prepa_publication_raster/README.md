@@ -4,14 +4,14 @@
 
 <!-- TOC depthFrom:2 depthTo:3 withLinks:1 updateOnSave:0 orderedList:0 -->
 
-- [Avant-Propos](#Avant-Propos-)
-- [Compression Raster](#Compression-Raster-)
-- [Confrontation](#Confrontation-)
-- [Conclusions](#Conclusions-)
+- [Avant-Propos](#avant-propos-)
+- [Compression Raster](#compression-raster-)
+- [Confrontation](#confrontation-)
+- [Conclusions](#conclusions-)
 
 <!-- /TOC -->
 
-## Avant-Propos <a id="#Avant-Propos-"></a>
+## Avant-Propos <a id="avant-propos-"></a>
 
 La préparation de données Raster est fonction de compromis entre espace disque disponible, maturité des outils à disposition et public ciblé (performance et qualité de rendu).
 
@@ -26,7 +26,7 @@ Avec Geoserver l’administrateur de donnée dispose de toute une gamme de forma
 Cette note a pour vocation de capitaliser les éléments justifiant les choix en matière de préparation de Raster sur la géoplateforme CIGAL.
 
 
-## Compression raster <a id="#Compression-Raster-"></a>
+## Compression raster <a id="compression-raster-"></a>
 
 Performances et volumétrie pourront fluctuer de manière importante selon le mode de compression retenu.
 
@@ -70,7 +70,7 @@ Pour les scripts batch de préparation se référer à
 https://github.com/cigalsace/processes/tree/master/gdal
 
 
-### Confrontation <a id="#Confrontation-"></a>
+### Confrontation <a id="confrontation-"></a>
 
 D’après
 
@@ -127,7 +127,7 @@ http://docs.geoserver.org/2.8.x/en/user/tutorials/imagemosaic_footprint/imagemos
 Enfin, appeler un WMS dans une autre projection différente de celle native de publication ne semble pas trop impactante par rapport aux temps de retour.
 
 
-## Conclusions <a id="#Conclusions"></a>
+## Conclusions <a id="conclusions"></a>
 
 
 Le tif non compressé est le format qui apporte les meilleures performances. Cependant, une ortho 20cm en tif deflate sur 10 départements pèserait 4.5 To. Un équilibre est donc à trouver.
