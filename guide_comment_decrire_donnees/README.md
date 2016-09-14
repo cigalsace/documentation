@@ -4,7 +4,7 @@
 
 <!-- TOC depthFrom:2 depthTo:3 withLinks:1 updateOnSave:0 orderedList:0 -->
 
-- [Contexte](#contexte)
+<!-- - [Contexte](#contexte)
 - [Définitions](#définitions)
 	- [Base de données](#base-de-données)
 	- [Fiche de métadonnées](#fiche-de-métadonnées)
@@ -13,7 +13,7 @@
 	- [Placer les fichiers ressources sur le serveur CIGAL](#placer-les-fichiers-ressources-sur-le-serveur-cigal)
 	- [Décrire le jeu de données](#décrire-le-jeu-de-données)
 	- [Exporter la fiche descriptive au format XML](#exporter-la-fiche-descriptive-au-format-xml)
-	- [Déposer la fiche au format XML sur le serveur CIGAL](#déposer-la-fiche-au-format-xml-sur-le-serveur-cigal)
+	- [Déposer la fiche au format XML sur le serveur CIGAL](#déposer-la-fiche-au-format-xml-sur-le-serveur-cigal) -->
 
 <!-- /TOC -->
 
