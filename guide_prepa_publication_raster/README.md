@@ -129,10 +129,10 @@ Enfin, appeler un WMS dans une autre projection différente de celle native de p
 
 ## Conclusions <a id="conclusions"></a>
 
-
 Le tif non compressé est le format qui apporte les meilleures performances. Cependant, une ortho 20cm en tif deflate sur 10 départements pèserait 4.5 To. Un équilibre est donc à trouver.
 
 Dans le cas de la géoplateforme CIGAL nous retenons pour le moment les pistes suivantes:
+
 - Privilégier deflate à lzw
 - Image mosaique avec overview interne plutôt que image pyramide (pour des produits types orthophoto HR départementale) et travailler à faire fonctionner convenablement le footprints
 - En général nous réservons la qualité optimale (sans perte) à la dernière ortho (par exemple la 2015) et les milésimes plus anciens, les produits dérivés (infrarouge…) sont compressées en JPEG 2000
