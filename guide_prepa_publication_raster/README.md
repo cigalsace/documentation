@@ -5,19 +5,13 @@
 <!-- TOC depthFrom:2 depthTo:3 withLinks:1 updateOnSave:0 orderedList:0 -->
 
 - [Avant-Propos](#Avant-Propos-)
-- [Définitions](#définitions-)
-	- [Base de données](#base-de-données-)
-	- [Fiche de métadonnées](#fiche-de-métadonnées-)
-- [Principes de base](#principes-de-base-)
-- [Procédure](#procédure-)
-	- [Placer les fichiers ressources sur le serveur CIGAL](#placer-les-fichiers-ressources-sur-le-serveur-cigal-)
-	- [Décrire le jeu de données](#décrire-le-jeu-de-données-)
-	- [Exporter la fiche descriptive au format XML](#exporter-la-fiche-descriptive-au-format-xml-)
-	- [Déposer la fiche au format XML sur le serveur CIGAL](#déposer-la-fiche-au-format-xml-sur-le-serveur-cigal-)
+- [Compression Raster](#Compression-Raster-)
+- [Confrontation](#Confrontation-)
+- [Conclusions](#Conclusions-)
 
 <!-- /TOC -->
 
-## Avant-Propos <a id="Avant-Propos-"></a>
+## Avant-Propos <a id="#Avant-Propos-"></a>
 
 La préparation de données Raster est fonction de compromis entre espace disque disponible, maturité des outils à disposition et public ciblé (performance et qualité de rendu).
 
@@ -29,10 +23,10 @@ Une donnée livrée est rarement directement prête pour être servie de manièr
 
 Avec Geoserver l’administrateur de donnée dispose de toute une gamme de formats en entrée.
 
-Cette note a pour vocation de capitalisé les éléments qui justifie les choix en matière de préparation de Raster sur la géoplateforme CIGAL.
+Cette note a pour vocation de capitaliser les éléments justifiant les choix en matière de préparation de Raster sur la géoplateforme CIGAL.
 
 
-## Retour sur la compression raster <a id="#Compression-"></a>
+## Compression raster <a id="#Compression-Raster-"></a>
 
 Performances et volumétrie pourront fluctuer de manière importante selon le mode de compression retenu.
 
@@ -66,17 +60,17 @@ gdaladdo --config COMPRESS_OVERVIEW DEFLATE --config GDAL_TIFF_OVR_BLOCKSIZE 512
 
 ````
 
-Si l’on souhaite rajouter la bande alpha au fichier il faut prévoir environ 10% de place en plus
+Si l’on souhaite rajouter la bande alpha au fichier il faut prévoir environ 10% de place de stockage en plus
 
-A noter que nous ne considérons pas ici les possibilités de varier l’option PREDICTOR en horizontal ou floating qui donne de meilleurs résultats mais qui semble mal géré par Geoserver.
+A noter que nous ne considérons pas ici les possibilités de varier l’option PREDICTOR en horizontal ou floating qui donne de meilleurs résultats mais qui semble mal gérée par Geoserver 2.8
 
-De la même manière nous avons constaté dans nos tests que les overview externes sont mal supportés par Geoserver
+De la même manière nous avons constaté dans nos tests que les overview externes ne seraient pas supportées par Geoserver 2.8
 
 Pour les scripts batch de préparation se référer à
 https://github.com/cigalsace/processes/tree/master/gdal
 
 
-### 2.	Confrontation <a id="#Confrontation-"></a>
+### Confrontation <a id="#Confrontation-"></a>
 
 D’après
 
@@ -86,7 +80,7 @@ https://wiki.osgeo.org/wiki/Banc_d'essai_comparatif
 
 http://www.digital-geography.com/geotiff-compression-comparison/#.V616dTUl8cN
 
-Des tests basiques jmeter nous ont permis d'aboutir aux résultats suivants
+Ainsi ques des tests basiques jmeter
 https://github.com/cigalsace/processes/tree/master/jmeter
 
 Dans l'ordre des cartouches:
@@ -116,96 +110,37 @@ https://www.cigalsace.org/geoserver/test_public/ows?SERVICE=WMS&VERSION=1.3.0&FO
 ![graphique agrege](https://cloud.githubusercontent.com/assets/5012040/17619644/067be5aa-6087-11e6-86d0-a0ccb603d50e.png)
 ![graphique evolution temps de reponses](https://cloud.githubusercontent.com/assets/5012040/17619646/07e746a0-6087-11e6-9ddd-501b6081d562.png)
 
-La version 15.12 de georchestra affiche des anomalies avec le format ecw
+Geoserver 2.8 supporte mal le format ecw
 
 On voit que le tif deflate donne de bons résultats pour un compromis entre volumétrie et performance.
 
-Les entrepots de type image mosaique affichent une meilleure réaction
-
-Les BigTiff répondent vraiment bien (ici avec granule d'environ 10 Giga + overview externe)
+Ci-dessous, les BigTiff répondent vraiment bien (ici avec granule d'environ 10 Giga + overview externe) car moins de fichiers à ouvrir.
 
 ![graphique agrege](https://cloud.githubusercontent.com/assets/5012040/17694608/f14ee242-63a4-11e6-908c-1a781890d712.png)
 ![graphique evolution temps de reponses](https://cloud.githubusercontent.com/assets/5012040/17694611/f2f2d64e-63a4-11e6-9aab-976b0485482c.png)
 
+Les entrepots de type image mosaique réagissent mieux. De plus, ils proposent maintenant une fonctionalité footprints qui permettrait de faire l'économie de la bande alpha. Par contre nous identifions un problème répertorié ici
+https://osgeo-org.atlassian.net/browse/GEOS-6760?attachmentViewMode=list
+Dans le cas d'overview interne il n'est pas possible pour lme moment d'appliqué un footprints couvrant des dalles non pleines. Fonctionnalité décrite ici
+http://docs.geoserver.org/2.8.x/en/user/tutorials/imagemosaic_footprint/imagemosaic_footprint.html#footprint-configured-with-footprints-shp
+
+Enfin, appeler un WMS dans une autre projection différente de celle native de publication ne semble pas trop impactante par rapport aux temps de retour.
 
 
-## Analyse conclusions pour la géoplateforme CIGAL <a id="#Analyse"></a>
+## Conclusions <a id="#Conclusions"></a>
 
 
-
-Le tif non compressé est le format qui apporte les meilleures performances. D’après le tableau du 1.2 une ortho 20cm en tif deflate sur 10 départements prend 4.5 To, un équilibre est donc à trouver avec les différentes méthodes et niveaux de compressions.
+Le tif non compressé est le format qui apporte les meilleures performances. Cependant, une ortho 20cm en tif deflate sur 10 départements pèserait 4.5 To. Un équilibre est donc à trouver.
 
 Dans le cas de la géoplateforme CIGAL nous retenons pour le moment les pistes suivantes:
 -Privilégier deflate à lzw
--Image mosaique avec overview interne plutôt que image pyramide (pour des produits types orthophoto HR départementale)
--En général nous réservons la qualité optimale (sans perte) à la dernière ortho (par exemple la 2015) et les milésimes plus anciens, les produits dérivés (infrarouge…) ou les ortho agglo haute résolution (8cm) sont compresser en JPEG 2000 (voir 4.1 pour des exemples de dégradation)
--Le développement de l’Open Data devrait rendre possible de plus en plus un accès direct à la donnée brute en téléchargement. Cela pourra décharger dans certain cas l’utilisation des flux de téléchargement type WCS qui par ailleurs impactent fortement les serveurs.
+-Image mosaique avec overview interne plutôt que image pyramide (pour des produits types orthophoto HR départementale) et travailler à faire fonctionner convenablement le footprints
+-En général nous réservons la qualité optimale (sans perte) à la dernière ortho (par exemple la 2015) et les milésimes plus anciens, les produits dérivés (infrarouge…) sont compressées en JPEG 2000
+-L'axe par téléchargement FTP des dalles type Open Data serait privélégié au développement du WCS consommateur pour les servers.
+-Le l93 serait prioritaire comme format de publication.
 
-D’après
+Reste également à jouer sur les pararamètres Geoserver
 http://fr.slideshare.net/geosolutions/geoserver-on-steroids-foss4g-2015
-
-Reste également à jouer sur les par
-(slide 11) Des optimisations sont à trouver dans les paramètres Geoserver selon les caractéristiques serveur
-
-Les reprojections Geoserver ne semble pas jouer de manière significative sur la performance ce qui nous incite à privilégier l93 pour les formats de publication.
-
-Utilisation Geowebcache pour WMTS dans les gridset les plus courament utilisés
-
-Privilégier dans les viewer les appels image/jpeg (10x moins lourds), attention également à la taille des tuiles
-
-
-## Procédure <a id="procédure-"></a>
-
-### Placer les fichiers ressources sur le serveur CIGAL <a id="#placer-les-fichiers-ressources-sur-le-serveur-cigal-"></a>
-
-Pour vous connecter à Pydio, rendez-vous à l'adresse : <https://www.cigalsace.org/files> Si vous n'êtes pas encore authentifié, saisissez votre identifiant et votre mot de passe avant de valider.
-
-![login](img/login.jpg)
-
-Une fois dans Pydio, sélectionnez dans la liste de gauche votre dépôt de métadonnées. Son nom est de la forme « Metadata_ORG » où « ORG » correspond au nom ou au sigle de votre organisme.
-
-![pydio1](img/pydio1.jpg)
-
-Il vous est ensuite possible :
-- De créer des répertoires pour organiser vos fichiers (bouton « créer » en haut à droite)
-- De déposer des fichiers par simple glisser/déposer sur l'écran (bouton « Transférer » en haut à droite)
-
-![pydio2](img/pydio2.jpg)
-
-Les fichiers ainsi déposés sur la plateforme CIGAL sont alors disponibles via une adresse du type « <https://www.cigalsace.org/metadata/ORG/REP/ressource.ext> », où :
-- « ORG » est le nom de la structure ou son sigle (identique au « ORG » du nom de dépôt Pydio)
-- « REP » est, le cas échéant, le chemin vers les fichiers dans le dépôt sur Pydio
-- « ressource.ext » est le nom du fichier de ressource concerné.
-
-**_Recommandations :_**
-- _Créer un répertoire pour chaque type de ressources transversales comme par exemple les logos qui sont utilisés par différentes fiches descriptives._
-- _Créer un répertoire par jeu de données pour y placer les éléments spécifiques (illustration, document technique, liste des attributs de la couche, etc.)_
-
-### Décrire le jeu de données <a id="#décrire-le-jeu-de-données-"></a>
-
-La description du jeu de données peut être réalisée assez simplement directement en ligne via mdEdit. L'accès à cette application ne nécessite pas d'authentification. Il vous suffit de vous rendre à l'adresse suivante : <https://www.cigalsace.org/tools/mdEdit/>
-
-_A la première connexion, en cas de problème d'affichage, il peut être nécessaire de rafraîchir la page !_
-
-![mdedit1](img/mdedit1.jpg)
-
-Il vous suffit alors de compléter le formulaire à partir des informations dont vous disposez sur le jeu de données. Pour plus de détail sur les informations attendues, vous pouvez vous rapportez au « Guide simplifié de saisie des métadonnées CIGAL ».
-
-**_Liens vers les ressources :_**
-_Les liens vers les ressources déposées sur la plateforme via Pydio doivent être renseignés selon une URL de la forme « <https://www.cigalsace.org/metadata/ORG/REP/ressource.ext> » comme décrit précédemment._
-
-### Exporter la fiche descriptive au format XML <a id="#exporter-la-fiche-descriptive-au-format-xml-"></a>
-
-Pour exporter la fiche descriptive au format XML, utiliser le bouton en haut à droite.
-
-![mdedit2](img/mdedit2.jpg)
-
-mdEdit permet également de recharger une fiche descriptive au format XML :
-- Pour la consulter
-- Pour la compléter ou la mettre à jour
-
-Il est ainsi possible de créer une fiche partiellement remplie et de la réutiliser comme un modèle pour saisir de nouvelles fiches.
-
-### Déposer la fiche au format XML sur le serveur CIGAL <a id="#déposer-la-fiche-au-format-xml-sur-le-serveur-cigal-"></a>
-
-Le dépôt du fichier XML sur le serveur CIGAL se fait via Pydio selon le même principe que le dépôt des fichiers ressources expliqué ci-dessus.
+(slide 11)
+à exploiter Geowebcache WMTS dans les gridset les plus courament utilisés
+et à encourager pour les viewers les appels image/jpeg (10x moins lourds) sur de petites tuiles.
