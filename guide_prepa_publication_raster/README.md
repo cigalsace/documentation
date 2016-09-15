@@ -30,7 +30,7 @@ Cette note a pour vocation de capitaliser les éléments justifiant les choix en
 
 Performances et volumétrie pourront fluctuer de manière importante selon le mode de compression retenu.
 
-|      Compression         |      Commentaire     |
+| Compression | Commentaire |
 |----------|--------------|
 |ecw|Avec ou sans perte. Format propriétaire qui nécessite une licence pour la publication web. Il ne sera pas traité dans la suite du document.|
 |Jp2000|Avec ou sans perte|
@@ -54,11 +54,11 @@ A titre d’exemple ci-dessous les variations en volumétrie d’une ortho RVB �
 
 (Ces résultats ont été obtenus dans les taux de compression par défaut et en rajoutant les inner tiling et overview pour préparer à la publication)
 
-````
+```
 gdal_translate -a_srs EPSG:3948 -co COMPRESS=DEFLATE -co TILED=YES -co BLOCKXSIZE=512 -co BLOCKYSIZE=512 input.tif output.tif
 gdaladdo --config COMPRESS_OVERVIEW DEFLATE --config GDAL_TIFF_OVR_BLOCKSIZE 512 output.tif 2 4 8 16 32 64 128
 
-````
+```
 
 Si l’on souhaite rajouter la bande alpha au fichier il faut prévoir environ 10% de place de stockage en plus
 
