@@ -1,6 +1,6 @@
 **Coopération pour l'Information Géographique en Alsace**
 
-# Recherche d’optimisation pour la publication web de données Raster sur Geoserver via GDAL dans un contexte geOrchestra
+# Recherche d’optimisation pour la publication web de données raster sur Geoserver via GDAL dans un contexte geOrchestra
 
 <!-- TOC depthFrom:2 depthTo:3 withLinks:1 updateOnSave:0 orderedList:0 -->
 
