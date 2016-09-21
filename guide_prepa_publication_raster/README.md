@@ -135,7 +135,7 @@ Dans le cas de la géoplateforme CIGAL nous retenons pour le moment les pistes s
 
 - Privilégier deflate à lzw
 - Image mosaique avec overview interne plutôt que image pyramide (pour des produits types orthophoto HR départementale) et travailler à faire fonctionner convenablement le footprints
-- En général nous réservons la qualité optimale (sans perte) à la dernière ortho (par exemple la 2015) et les milésimes plus anciens, les produits dérivés (infrarouge…) sont compressées en JPEG 2000
+- En général nous réservons la qualité optimale (sans perte) à la dernière ortho (par exemple la 2015) et les milésimes plus anciens, les produits dérivés (infrarouge…) sont compressées en JPEG
 - L'axe par téléchargement FTP des dalles type Open Data serait privélégié au développement du WCS consommateur pour les servers.
 - Le l93 serait prioritaire comme format de publication.
 
