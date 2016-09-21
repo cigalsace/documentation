@@ -79,7 +79,7 @@ Les fichiers ainsi déposés sur la plateforme CIGAL sont alors disponibles via 
 
 **_Recommandations :_**
 - _Créer un répertoire pour chaque type de ressources transversales comme par exemple les logos qui sont utilisés par différentes fiches descriptives._
-- _Créer un répertoire par jeu de données pour y placer les éléments spécifiques (illustration, document technique, liste des attributs de la couche, etc.)_
+- _Créer un répertoire par jeu de données pour y placer le fichier XML de la fiche descriptive et les éléments spécifiques (illustration, documents techniques, liste des attributs de la couche, etc.)_
 
 ### Décrire le jeu de données <a id="décrire-le-jeu-de-données-"></a>
 
