@@ -56,7 +56,7 @@ Cette démarche s'appuie sur les outils suivants :
 - mdEdit: <https://www.cigalsace.org/tools/mdEdit> Il permet de renseigner une fiche de description de données et de l'enregistrer au format XML
 
 Avant de poursuivre, vous devez disposer d'un identifiant et d'un mot de passe pour vous connecter à la plateforme CIGAL, ainsi que d'un espace de stockage sur Pydio.
-**Si ce n'est pas le cas, les chefs de projet CIGAL sont à votre disposition.**
+**Si ce n'est pas le cas, les chefs de projet CIGAL sont à votre disposition <mailto:contact@cigalsace.org>.**
 
 
 ## Procédure <a id="procédure-"></a>
