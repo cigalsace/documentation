@@ -15,36 +15,36 @@
 	- [Dépôt des données SHP via Pydio](#depot-shp-via-pydio--)
 	- [Création de la couche WMS/WFS à partir de l'entrepôt de SHP](#creation-layer-geoserver-)
 	- [Création du style SLD](#creation-du-style-sld-)
-	- [Gestion des couches et paramètrages par le partenaire](#gestion-des-couches-gs-)
+	- [Gestion des couches et paramétrages par le partenaire](#gestion-des-couches-gs-)
 
 <!-- /TOC -->
 
 ## Contexte <a id="contexte-"></a>
 
-Vous êtes adhérant cigal et ne disposez pas d'outil pour publier des flux WMS WFS conformément à la directive INSPIRE. Vous avez déja décrit votre donnée dans le catalogue CIGAL https://www.cigalsace.org/portail/fr/doc/774/guide-comment-decrire-simplement-vos-donnees-geographiques-et-rendre-consultables-sur
+Vous êtes adhérant CIGAL et ne disposez pas d'outil pour publier des flux WMS WFS conformément à la directive INSPIRE. Vous avez déjà décrit votre donnée dans le catalogue CIGAL https://www.cigalsace.org/portail/fr/doc/774/guide-comment-decrire-simplement-vos-donnees-geographiques-et-rendre-consultables-sur
 
 
 ## Définitions <a id="définitions-"></a>
 
 ### Geoserver et administration déléguée<a id="gs-admin-delegue-"></a>
 
-Geoserver est un serveur cartographique permettant aux utilisateurs de partager et de modifier des données géographiques en respectant les normes et standarts d'interropérabilité. Geoserver est un module de l'outil georchestra sur lequel se base la géoplateforme CIGAL. Les services de Geoserver sont gérés par un administrateur de donnée qui a la possibilité de délégué des droits à un partenaire sur un espace de travail qui lui est dédié. Dans cet espace le partenaire que l'on nommera administrateur délégué a la possibilité de créer des flux WMS couplés WFS ansi que de mettre en forme les styles par défaut SLD pour les WMS.
+Geoserver est un serveur cartographique permettant aux utilisateurs de partager et de modifier des données géographiques en respectant les normes et standards d'interopérabilité. Geoserver est un module de l'outil georchestra sur lequel se base la géoplateforme CIGAL. Les services de Geoserver sont gérés par un administrateur de donnée qui a la possibilité de délégué des droits à un partenaire sur un espace de travail qui lui est dédié. Dans cet espace le partenaire que l'on nommera administrateur délégué a la possibilité de créer des flux WMS couplés WFS ainsi que de mettre en forme les styles par défaut SLD pour les WMS.
 
 ### WMS <a id="wms-"></a>
 
-Le Web Map Service est un standard OGC (pour Open Geospatial Consortium) de service web qui permet de produire dynamiquement des cartes à partir de données géoréférencées. Les cartes se présentent sous la forme de tuiles d'image avec une fonctionnalité basique d'intérogation des attributs d'objet.
+Le Web Map Service est un standard OGC (pour Open Geospatial Consortium) de service web qui permet de produire dynamiquement des cartes à partir de données géoréférencées. Les cartes se présentent sous la forme de tuiles d'image avec une fonctionnalité basique d'intérrogation des attributs d'objet.
 
 Pour de plus amples informations https://tice.agrocampus-ouest.fr/mod/page/view.php?id=27488
 
 ### WFS <a id="wfs-"></a>
 
-Le Web Feature Service, est un standard OGC de Service Web dédiée à la publication d’objets géographiques vecteurs (lignes, points, polygones...) ainsi que leur structure. l'interface permet le téléchargement et la manipulation des données vecteur. La fonctionnalité d'édition WFS-T n'est pas activée.
+Le Web Feature Service, est un standard OGC de Service Web dédiée à la publication d’objets géographiques vecteurs (lignes, points, polygones...) ainsi que leur structure. L'interface permet le téléchargement et la manipulation des données vecteur. La fonctionnalité d'édition WFS-T n'est pas activée.
 
 Pour de plus amples informations https://tice.agrocampus-ouest.fr/mod/page/view.php?id=27489
 
 ### SLD <a id="sld-"></a>
 
-Le Style Layer Descriptor est un format interropérable de stylage de données géographiques.
+Le Style Layer Descriptor est un format interopérable de stylage de données géographiques.
 Pour créer des style on peut utiliser le visualiseur CIGAL ou QGIS entre autres outils.
 
 L'outil styler du visualiseur CIGAL https://www.cigalsace.org/mapfishapp/
@@ -55,7 +55,7 @@ Analyse/Ajouter une classe/Télécharger le style
 ![mapfish2](img/mapfish_style2.png)
 
 Sous QGIS
-Couche/Propriété/Style/Eregistrer le style/Fichier SLD
+Couche/Propriété/Style/Enregistrer le style/Fichier SLD
 ![qgis_style](img/qgis_style.png)
 
 ## Principes de base <a id="principes-de-base-"></a>
@@ -100,7 +100,7 @@ Il vous est ensuite possible de déposer des fichiers par simple glisser/dépose
 ### Création de la couche WMS/WFS à partir de l'entrepôt de SHP <a id="creation-layer-geoserver-"></a>
 
 Pour vous connecter à Geoserver, rendez-vous à l'adresse : <https://www.cigalsace.org/geoserver/web/?login>
-Vous devriez normalement disposer des fonctionnalitées suivantes dans le menu à gauche
+Vous devriez normalement disposer des fonctionnalités suivantes dans le menu à gauche
 
 ![gs1](img/gs1.png)
 
@@ -126,11 +126,11 @@ Le résumé de la couche est un champ texte libre pour rajouter des informations
 
 ![gs5](img/gs5.png)
 
-Il faut maintenant vérifier les systèmes de référence de coordonnées. Le SRC des données doit être le même que le SRC natif. Si ce dernier n'est pas pré rempli, ajoutez le à la main (Rechercher)
+Il faut maintenant vérifier les systèmes de référence de coordonnées. Le SRC des données doit être le même que le SRC natif. Si ce dernier n'est pas pré rempli, ajoutez-le à la main (Rechercher)
 
 Cliquer en suite sur "Basées sur les données" puis sur "Calculées sur les emprises natives"
 
-C'est seulement à ce moment que Geoserver vous permet de paramètré le lien vers la métadonnée.
+C'est seulement à ce moment que Geoserver vous permet de paramétré le lien vers la métadonnée.
 
 Pour lier le service WMS à la métadonnée cliquer sur "Ajouter un lien"
 
@@ -197,7 +197,7 @@ Ne pas oublier de Sauvegarder en bas du formulaire
 
 Vérifiez que la couche est bien visible, menu gauche prévisualisation/openlayer
 
-Vous avez la possibilité également d'afecter à vos couches vos attributions
+Vous avez la possibilité également d'affecter à vos couches vos attributions
 Couche/onglet publication
 ![gs12](img/gs12.png)
 
