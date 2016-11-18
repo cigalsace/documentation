@@ -3,6 +3,7 @@
 # Comment publier votre couche SIG sur la géoplateforme CIGAL ?
 
 <!-- TOC depthFrom:2 depthTo:3 withLinks:1 updateOnSave:0 orderedList:0 -->
+<a id="sommaire-"></a>
 
 - [Contexte](#contexte-)
 - [Définitions](#définitions-)
@@ -38,7 +39,7 @@ Pour de plus amples informations https://tice.agrocampus-ouest.fr/mod/page/view.
 
 ### WFS <a id="wfs-"></a>
 
-Le **Web Feature Service** est un standard OGC de Service Web dédiée à la publication d’objets géographiques vecteurs (lignes, points, polygones...) ainsi que leur structure. L'interface permet le téléchargement et la manipulation des données vecteur. La fonctionnalité d'édition WFS-T n'est pas activée.
+Le **Web Feature Service** est un standard OGC de Service Web dédié à la publication d’objets géographiques vecteurs (lignes, points, polygones...). L'interface WFS permet le téléchargement et la manipulation des données. La fonctionnalité d'édition WFS-T n'est pas activée par défaut.
 
 Pour de plus amples informations https://tice.agrocampus-ouest.fr/mod/page/view.php?id=27489
 
@@ -48,23 +49,28 @@ Le **Style Layer Descriptor** est un format interopérable pour du stylage de do
 Il existe toute une série d'interfaces graphiques pour créer des SLD comme le visualiseur CIGAL ou QGIS.
 
 L'outil styler du visualiseur CIGAL https://www.cigalsace.org/mapfishapp/ dans
+
 *Couches disponibles/Actions/Éditer la symbologie/*
+
 ![mapfish](img/mapfish_style.png)
 
 *Analyse/Ajouter une classe/Télécharger le style*
+
 ![mapfish2](img/mapfish_style2.png)
 
 Enregistrer le style sur son poste de travail.
 
 Sous QGIS
+
 *Couche/Propriété/Style/Enregistrer le style/Fichier SLD*
+
 ![qgis_style](img/qgis_style.png)
 
 ## Principes de base <a id="principes-de-base-"></a>
 
-Il est dorénavant possible sur la géoplateforme CIGAL à un administrateur délégué de disposer de toute la chaîne de publication pour créer ses couches vecteur sur un espace de travail qui lui est dédié dans Geoserver.
+Il est dorénavant possible sur la géoplateforme CIGAL à un administrateur délégué de disposer de toute la chaîne de publication pour créer ses couches vecteur dans un espace de travail qui lui est dédié.
 
- :warning: **Bien respecter les règles de nommage et  vérifier que les styles et les couches poussées sur la plateforme soient fonctionnels.**
+ :warning: **Bien respecter les règles de nommage et  vérifier que les styles et les couches poussées sur la Geoserver soient fonctionnels.**
 
 Le principe est le suivant:
 
@@ -79,8 +85,9 @@ Cette démarche s'appuie sur les outils suivants :
 - Geoserver: <https://www.cigalsace.org/geoserver/web/?login> Pour créer ses couches
 - Mapfishapp: <https://www.cigalsace.org/mapfishapp> Pour visualiser et créer les styles
 
-Avant de poursuivre, vous devez disposer d'un identifiant et d'un mot de passe pour vous connecter à la plateforme CIGAL, ainsi que d'un espace de stockage sur Pydio et un accès vers un espace de travail Geoserver.
- :envelope: **Si ce n'est pas le cas, les chefs de projet CIGAL sont à votre disposition <mailto:contact@cigalsace.org>.**
+Avant de poursuivre, vous devez disposer d'un identifiant et d'un mot de passe pour vous connecter à la plateforme CIGAL. Les administrateurs doivent vous mettre en place préalablement un espace de stockage sur Pydio et un espace de travail Geoserver.
+
+ :envelope: **Si ce n'est pas le cas, contacter <mailto:contact@cigalsace.org>.**
 
 ## Procédure <a id="procédure-"></a>
 
@@ -95,7 +102,7 @@ Une fois dans Pydio, sélectionnez dans la liste de gauche votre dépôt de donn
 Il vous est ensuite possible de déposer des fichiers par simple glisser/déposer sur l'écran (bouton « Transférer » en haut à droite)
 
  :notebook_with_decorative_cover: **_Notes :_**
-- Seuls les formats shapefile SHP sont supportés pour le moment.
+- Seuls les formats shapefile SHP sont supportés pour le moment. (Certains partenaires fonctionnent par dump postgis il suffit alors de passer l'étape pydio)
 - Vos SHP doivent tous être regroupés dans un seul et même répertoire.
 - Écraser un shapefile du même nom va directement mettre à jour la donnée dans Geoserver.
 - Supprimer un shapefile nécessite de supprimer à la main la couche correspondante dans Geoserver.
@@ -104,13 +111,13 @@ Il vous est ensuite possible de déposer des fichiers par simple glisser/dépose
 ### Création de la couche WMS WFS sous Geoserver <a id="creation-layer-geoserver-"></a>
 
 Pour vous connecter à Geoserver, rendez-vous à l'adresse : <https://www.cigalsace.org/geoserver/web/?login>
-Vous devriez normalement disposer des fonctionnalités suivantes dans le menu à gauche
+Vous devriez normalement disposer des fonctionnalités suivantes dans le **menu gauche**
 
 ![gs1](img/gs1.png)
 
-Créer une couche correspond à un WMS associé avec WFS, les deux sont par défaut publics.
-
 **__Commencez par créer une couche :exclamation:__ :**
+
+Créer une couche c'est publier un service WMS associé avec un service WFS, les deux étant publics par défaut.
 
 Dans le menu gauche choisir "Couches" puis "Ajouter une nouvelle ressource"
 
@@ -120,9 +127,7 @@ Chercher l'entrepôt **ORG:ORG_SHP** puis publier la couche SHP souhaitée
 
 ![gs3](img/gs3.png)
 
-**__Paramètres à préciser pour chaque couche__ :**
-
-Le formulaire se présente ainsi:
+**__Paramètres à préciser pour chaque couche dans le formulaire__ :**
 
 ![gs4](img/gs4.png)
 
@@ -138,14 +143,15 @@ Il faut maintenant vérifier les **systèmes de référence de coordonnées**. L
 
 Cliquer en suite sur "Basées sur les données" puis sur "Calculées sur les emprises natives"
 
-C'est seulement à ce moment que Geoserver vous permet de paramétrer le lien vers la métadonnée de donnée.
+C'est seulement à ce moment que Geoserver vous permet de paramétrer le lien vers la métadonnée.
 
-Toujours dans le formulaire de la couche, lier le service WMS à la métadonnée en cliquant sur "Ajouter un lien"
+Toujours dans le formulaire de la couche, lier le **service WMS** à la **métadonnée de donnée** en cliquant sur "Ajouter un lien"
 
 ![gs6](img/gs6.png)
 
-Saisissez à minima les formats txt/html et text/XML
-L'URL de la métadonnée peut être récupérée depuis le catalogue https://www.cigalsace.org/geonetwork/apps/georchestra/?hl=fre
+Saisir à minima les formats txt/html et text/XML
+
+L'URL de la métadonnée peut être retrouvée depuis le catalogue https://www.cigalsace.org/geonetwork/apps/georchestra/?hl=fre
 
 Ouvrir la fiche et copier le lien en haut à droite
 
@@ -155,20 +161,20 @@ De retour sur Geoserver vous pouvez maintenant créer la couche en bas du formul
 
 ![gs7](img/gs7.png)
 
-Vérifier quelle est bien dans la liste de couches en cliquant sur couche puis faire une recherche textuelle pour la retrouver
+Vérifier que cette dernière se retrouve bien dans la liste de couches par le menu gauche "Couches" puis une recherche textuelle pour la retrouver
 
 ![gs8](img/gs8.png)
 
-Attention sans la recherche textuelle (entouré en rouge dans l'image) la couche ne va peut être pas s'afficher (c'est un bug mineur)
+Attention sans la recherche textuelle (entouré en rouge dans l'image) la couche ne peut ne pas s'afficher (bug mineur)
 
-La couche se retrouve bien là c'est quasi gagné  :+1:
+Si la couche est là, vous avez quasi gagné  :+1:
 
 Pour en être bien certain, dans le menu gauche "Prévisualisation de la couche" puis "OpenLayers"
 ![gs8](img/gs8.png)
 
-Vous visualiserez de cette manière les données avec la possibilité d'interroger les objet en cliquant dessus.
+Vous disposez ainsi d'un aperçu des données dans Open Layer avec la possibilité d'interroger les objets en cliquant dessus.
 
-Voici un exemple de prévisualisation Open Layer
+Voici un exemple de lien de prévisualisation
 https://www.cigalsace.org/geoserver/SLM67/wms?service=WMS&version=1.1.0&request=GetMap&layers=SLM67:SLM67_COMMUNES_COL_L93&styles=&bbox=1045480.4636068232,6831934.8059389,1056136.5844213301,6849241.151293313&width=472&height=768&srs=EPSG:2154&format=application/openlayers
 
 ### Exporter un style SLD <a id="creation-du-style-sld-"></a>
@@ -177,20 +183,23 @@ Rendez vous sur le visualiseur CIGAL Mapfishapp https://www.cigalsace.org/mapfis
 
 En bas à droite "Ajouter des couches"
 
-![mapfish_couche](img/mapfish_couche.jpg)
+![mapfish_couche](img/mapfish_couche.png)
 
 Dans l'onglet serveur OGC, saisir votre adresse WMS en remplaçant **xxx** par le nom de votre espace de travail Geoserver
 https://www.cigalsace.org/geoserver/**xxx**/ows
 
 Touche "Entrée" puis tirer la couche via le bouton "Ajouter"
 
-![mapfish_ajout](img/mapfish_ajout.jpg)
+![mapfish_ajout](img/mapfish_ajout.png)
 
 Depuis l'arbre des couche retrouver la cartouche qui correspond à votre donnée
+
 *Couches disponibles/Actions/Éditer la symbologie/*
+
 ![mapfish](img/mapfish_style.png)
 
 *Analyse/Ajouter une classe/Télécharger le style*
+
 ![mapfish2](img/mapfish_style2.png)
 
 ### Paramétrages complémentaires des couches<a id="gestion-des-couches-gs-"></a>
@@ -198,6 +207,7 @@ Depuis l'arbre des couche retrouver la cartouche qui correspond à votre donnée
 Retournez dans Geoserver et enregistrer le style de la manière suivante
 
 Menu gauche "Style", choisir "Ajouter un nouveau style"
+
 ![gs10](img/gs10.png)
 
 Copier coller le xml correspondant au SLD téléchargé dans le chapitre précédent.
@@ -206,14 +216,17 @@ Des exemples de SLD sont disponibles ici http://docs.geoserver.org/stable/en/use
 
 Retourner sur la couche, menu gauche "Couches" puis sélectionner la couche,  onglet publication.
 Il sera alors possible de paramétrer le style par défaut
+
 ![gs11](img/gs11.png)
 
  :warning: Ne pas oublier de Sauvegarder en bas du formulaire
 
 Vérifier que la couche est bien visible, menu gauche *prévisualisation/openlayer*
 
-Enfin, vous avez la possibilité également d'affecter à vos couches vos attributions
-Couche/onglet publication
+Enfin, vous avez la possibilité d'affecter à vos couches vos attributions
+
+"Couches" , onglet publication
+
 ![gs12](img/gs12.png)
 
 Par exemple
@@ -227,3 +240,5 @@ image/jpeg
 
 Ce qui donne au survol de la sourie dans Mapfishapp
 ![mapfish_attrib](img/mapfish_attrib.png)
+
+[Retour au sommaire](#sommaire-)
