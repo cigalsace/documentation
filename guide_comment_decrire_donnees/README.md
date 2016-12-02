@@ -100,6 +100,9 @@ Il vous suffit alors de compléter le formulaire à partir des informations dont
 **_Liens vers les ressources :_**
 _Les liens vers les ressources déposées sur la plateforme via Pydio doivent être renseignés selon une URL de la forme « <https://www.cigalsace.org/metadata/ORG/REP/ressource.ext> » comme décrit précédemment._
 
+Pour vous accompagner dans la saisie des informations vous pouvez vous appuyer sur les guides du GT métadonnées CIGAL
+https://www.cigalsace.org/portail/fr/doc/353/guide-cigal-simplifie-pour-saisie-metadonnees-description-donnees-geographiques
+https://www.cigalsace.org/portail/fr/system/files/document/2013-11/guide-cigal_descriptiondonneesgeo_v1.0_120807.pdf
 
 ### Exporter la fiche descriptive au format XML <a id="exporter-la-fiche-descriptive-au-format-xml-"></a>
 
