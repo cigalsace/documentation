@@ -67,6 +67,7 @@ Nous utilisons la compression deflate en jouant également sur le inner tiling
 ```gdal_translate -a_srs EPSG:3948 -co COMPRESS=DEFLATE -co BIGTIFF=YES -co "TILED=YES" -co "BLOCKXSIZE=512" -co "BLOCKYSIZE=512" input.tif output.tif```
 
 (remarque -co bigtiff=yes seulement si vos fichiers dépassent les 4 GB)
+(l'option PREDICTOR est mal supporté par GS)
 
 Avant de finir en calculant les overview
 
