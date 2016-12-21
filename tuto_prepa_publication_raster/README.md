@@ -66,6 +66,8 @@ Nous utilisons la compression deflate en jouant également sur le inner tiling
 
 ```gdal_translate -a_srs EPSG:3948 -co COMPRESS=DEFLATE -co BIGTIFF=YES -co "TILED=YES" -co "BLOCKXSIZE=512" -co "BLOCKYSIZE=512" input.tif output.tif```
 
+(remarque -co bigtiff=yes seulement si vos fichiers dépassent les 4 GB)
+
 Avant de finir en calculant les overview
 
 ```gdaladdo -ro -r average --config COMPRESS_OVERVIEW DEFLATE --config GDAL_TIFF_OVR_BLOCKSIZE 512 E:\raster\ortho11_12\%%~nG_O.tif 2 4 8 16 32 64 128```
