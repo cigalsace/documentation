@@ -22,14 +22,14 @@
 
 ## Contexte <a id="contexte-"></a>
 
-Vous êtes adhérant CIGAL et ne disposez pas d'outil pour publier des flux WMS WFS conformément à la directive INSPIRE. Votre donnée est déjà décrite dans le catalogue CIGAL conformément à https://www.cigalsace.org/portail/fr/doc/774/guide-comment-decrire-simplement-vos-donnees-geographiques-et-rendre-consultables-sur
+Vous êtes adhérant CIGAL et ne disposez pas d'outil pour publier des flux WMS et WFS conformément à la directive INSPIRE. Votre donnée est déjà décrite dans le catalogue CIGAL conformément à https://www.cigalsace.org/portail/fr/doc/774/guide-comment-decrire-simplement-vos-donnees-geographiques-et-rendre-consultables-sur
 
 
 ## Définitions <a id="définitions-"></a>
 
 ### Geoserver et administration déléguée<a id="gs-admin-delegue-"></a>
 
-Geoserver est un serveur cartographique permettant aux utilisateurs de partager et de modifier des données géographiques en respectant les normes et standards d'interopérabilité. Geoserver est un module de l'outil d'IDS georchestra sur lequel se base la géoplateforme CIGAL. **Les services de Geoserver sont gérés par un administrateur de donnée qui a la possibilité de déléguer des droits à un partenaire sur un espace de travail qui lui est dédié**. Dans cet espace le partenaire que l'on nommera administrateur délégué a la possibilité de créer des flux WMS couplés WFS ainsi que de mettre en forme les styles par défaut SLD pour les WMS.
+Geoserver est un serveur cartographique permettant aux utilisateurs de partager et de modifier des données géographiques en respectant les normes et standards d'interopérabilité. Geoserver est un module de l'outil d'IDS geOrchestra sur lequel se base la Géoplateforme CIGAL. **Les services de Geoserver sont gérés par un administrateur de donnée qui a la possibilité de déléguer des droits à un partenaire sur un espace de travail qui lui est dédié.** Dans cet espace, le partenaire que l'on nommera "administrateur délégué" a la possibilité de créer des flux WMS couplés WFS ainsi que de mettre en forme les styles par défaut SLD pour les WMS.
 
 ### WMS <a id="wms-"></a>
 
@@ -39,7 +39,7 @@ Pour de plus amples informations https://tice.agrocampus-ouest.fr/mod/page/view.
 
 ### WFS <a id="wfs-"></a>
 
-Le **Web Feature Service** est un standard OGC de Service Web dédié à la publication d’objets géographiques vecteurs (lignes, points, polygones...). L'interface WFS permet le téléchargement et la manipulation des données. La fonctionnalité d'édition WFS-T n'est pas activée par défaut.
+Le **Web Feature Service** est un standard OGC de Service Web dédié à la publication d’objets géographiques vecteurs (lignes, points, polygones...). L'interface WFS permet le téléchargement et la manipulation des données. La fonctionnalité d'édition WFS-T n'est pas activée par défaut sur la Géoplateforme CIGAL.
 
 Pour de plus amples informations https://tice.agrocampus-ouest.fr/mod/page/view.php?id=27489
 
@@ -68,22 +68,22 @@ Sous QGIS
 
 ## Principes de base <a id="principes-de-base-"></a>
 
-Il est dorénavant possible sur la géoplateforme CIGAL à un administrateur délégué de disposer de toute la chaîne de publication pour créer ses couches vecteur dans un espace de travail qui lui est dédié.
+Il est dorénavant possible sur la Géoplateforme CIGAL à un administrateur délégué de disposer de toute la chaîne de publication pour créer ses couches vecteur dans un espace de travail qui lui est dédié.
 
- :warning: **Bien respecter les règles de nommage et  vérifier que les styles et les couches poussées sur la Geoserver soient fonctionnels.**
+ :warning: **Bien respecter les règles de nommage et vérifier que les styles et les couches poussées sur Geoserver soient fonctionnels.**
 
 Le principe est le suivant:
 
 1. Dépôt des données SHP via Pydio
-2. Création de la couche WMS WFS sous Geoserver
+2. Création de la couche WMS/WFS sous Geoserver
 3. Exporter un style SLD
 4. Paramétrages complémentaires des couches
 
 Cette démarche s'appuie sur les outils suivants :
 
-- Pydio: <https://www.cigalsace.org/files/?login> Pour déposer ses données sur le serveur
-- Geoserver: <https://www.cigalsace.org/geoserver/web/?login> Pour créer ses couches
-- Mapfishapp: <https://www.cigalsace.org/mapfishapp> Pour visualiser et créer les styles
+- Pydio: <https://www.cigalsace.org/files/?login> pour déposer ses données sur le serveur
+- Geoserver: <https://www.cigalsace.org/geoserver/web/?login> pour créer ses couches
+- Mapfishapp: <https://www.cigalsace.org/mapfishapp> pour visualiser et créer les styles
 
 Avant de poursuivre, vous devez disposer d'un identifiant et d'un mot de passe pour vous connecter à la plateforme CIGAL. Les administrateurs doivent vous mettre en place préalablement un espace de stockage sur Pydio et un espace de travail Geoserver.
 
@@ -99,7 +99,7 @@ Pour vous connecter à Pydio, rendez-vous à l'adresse : <https://www.cigalsace.
 
 Une fois dans Pydio, sélectionnez dans la liste de gauche votre dépôt de données. Son nom est de la forme « data_ORG » où « ORG » correspond au nom ou au sigle de votre organisme.
 
-Il vous est ensuite possible de déposer des fichiers par simple glisser/déposer sur l'écran (bouton « Transférer » en haut à droite)
+Il vous est ensuite possible de déposer des fichiers par simple glisser/déposer sur l'écran (ou bouton « Transférer » en haut à droite)
 
  :notebook_with_decorative_cover: **_Notes :_**
 - Seuls les formats shapefile SHP sont supportés pour le moment. (Certains partenaires fonctionnent par dump postgis il suffit alors de passer l'étape pydio)
@@ -108,7 +108,7 @@ Il vous est ensuite possible de déposer des fichiers par simple glisser/dépose
 - Supprimer un shapefile nécessite de supprimer à la main la couche correspondante dans Geoserver.
 
 
-### Création de la couche WMS WFS sous Geoserver <a id="creation-layer-geoserver-"></a>
+### Création de la couche WMS/WFS sous Geoserver <a id="creation-layer-geoserver-"></a>
 
 Pour vous connecter à Geoserver, rendez-vous à l'adresse : <https://www.cigalsace.org/geoserver/web/?login>
 Vous devriez normalement disposer des fonctionnalités suivantes dans le **menu gauche**
@@ -117,7 +117,7 @@ Vous devriez normalement disposer des fonctionnalités suivantes dans le **menu 
 
 **__Commencez par créer une couche :exclamation:__ :**
 
-Créer une couche c'est publier un service WMS associé avec un service WFS, les deux étant publics par défaut.
+Créer une couche, c'est publier un service WMS associé à un service WFS, les deux étant publics par défaut.
 
 Dans le menu gauche choisir "Couches" puis "Ajouter une nouvelle ressource"
 
@@ -141,7 +141,7 @@ Le résumé de la couche est un champ texte libre qui apporte des informations p
 
 Il faut maintenant vérifier les **systèmes de référence de coordonnées**. Le SRC des données doit être le même que le SRC natif. Si ce dernier n'est pas pré rempli, ajoutez-le à la main (Rechercher par code EPSG)
 
-Cliquer en suite sur "Basées sur les données" puis sur "Calculées sur les emprises natives"
+Cliquer ensuite sur "Basées sur les données" puis sur "Calculées sur les emprises natives"
 
 C'est seulement à ce moment que Geoserver vous permet de paramétrer le lien vers la métadonnée.
 
@@ -192,7 +192,7 @@ Touche "Entrée" puis tirer la couche via le bouton "Ajouter"
 
 ![mapfish_ajout](img/mapfish_ajout.png)
 
-Depuis l'arbre des couche retrouver la cartouche qui correspond à votre donnée
+Depuis l'arbre des couche retrouver le cartouche qui correspond à votre donnée
 
 *Couches disponibles/Actions/Éditer la symbologie/*
 
