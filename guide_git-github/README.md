@@ -47,6 +47,12 @@ Ajouter les fichiers modifiés dans la file d'attente de Git
 $ git add .
 ```
 
+Pour visualiser le statut des modifications prévues, la commande suivante peut-être appelée:
+
+```
+$ git status
+```
+
 Créer un commit en spécifiant le message de description de la modification apportée (ne pas être trop long: 50 caratères):
 
 ```
@@ -61,7 +67,13 @@ $ git push
 
 Résultat:
 
-![Publication.jpg](Publication.jpg)
+Clonnage du dépôt (`git clone ...`)
+
+![clone.jpg](img/clone.jpg)
+
+Mise à jour du dépôt (`git pull`)
+
+![pull.jpg](img/pull.jpg)
 
 
 ## Fichier `.gitignore`
