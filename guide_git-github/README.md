@@ -15,16 +15,25 @@ Cf. https://git-scm.com/
 
 ## Publier des fichiers dans un entrepôt
 
-Se placer dans le répertoire souhaité:
+Se placer dans le répertoire souhaité.
+A noter que lors du clônage d'une dépôt, un fichier du nom du dépôt est créé.
 
 ```
 $ cd mon_repertoire
 ```
 
-Cloner le dépôt (ici le dépôt documentation):
+Si le dépôt n'a jamais été clôné, lec Cloner le dépôt (ici le dépôt "documentation"):
 
 ```
 $ git clone https://github.com/cigalsace/documentation.git
+$ cd documentation
+```
+
+S'il existe, il faut se placer dans le dossier du dépôt puis le mettre à jour (le tirer):
+
+```
+$ cd documentation
+$ git pull
 ```
 
 Apporter les modification souhaitées:
@@ -52,7 +61,7 @@ $ git push
 
 Résultat:
 
-![resultat.jpg](resultat.jpg)
+![Publication.jpg](Publication.jpg)
 
 
 ## Fichier `.gitignore`
