@@ -48,31 +48,33 @@ Pour vous connecter au serveur Open Data information géographique, vous devez u
 
 Organisation des fichiers par département en se rapprochant des règles de nommage IGN
 
-```{PROD}_{OPTION}_{RES}_{FORMAT}_{RIG}_{INFO}```
+`{PROD}_{OPTION}_{RES}_{FORMAT}_{RIG}_{INFO}`
 
 Par exemple :
 
-* open_data
-  * OHR_RVB_0M20_JP2-E100_LAMB93_D67-2015
-    * data
-    * metadata
-    * catalog
-  * OHR_RVB_0M20_JP2-E100_LAMB93_D57-2015
-    * data
-    * metadata
-    * catalog
-  * OHR_IRC_0M20_JP2-E100_LAMB93_D68-2015
-    * data
-    * metadata
-    * catalog
-  * OHR_MNS_0M20_TIF_LAMB93_D57-2015 
-    * data
-    * metadata
-    * catalog
-  * BDOHISTO_NB_67_0M50_1950_LACC48
-    * data
-    * metadata
-    * catalog
+```
++-- open_data
+    +-- OHR_RVB_0M20_JP2-E100_LAMB93_D67-2015
+        +-- data
+        +-- metadata
+        +-- catalog
+    +-- OHR_RVB_0M20_JP2-E100_LAMB93_D57-2015
+        +-- data
+        +-- metadata
+        +-- catalog
+    +-- OHR_IRC_0M20_JP2-E100_LAMB93_D68-2015
+        +-- data
+        +-- metadata
+        +-- catalog
+    +-- OHR_MNS_0M20_TIF_LAMB93_D57-2015 
+        +-- data
+        +-- metadata
+        +-- catalog
+    +-- BDOHISTO_NB_67_0M50_1950_LACC48
+        +-- data
+        +-- metadata
+        +-- catalog
+```
 
 Les images RVB et IRC sont compressées en JPEG2000 e100 version "standard" (compression sans perte) avec un dallage de 1 x 1 km.
 Le MNS est proposé en format tif avec fichiers TFW, HDR et grf associés regroupés dans des paquets ZIP.
