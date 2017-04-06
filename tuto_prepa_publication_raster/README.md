@@ -28,18 +28,24 @@ Eléments de comparaison entre les deux méthodes
 
 Pour chaque dalle on calcul le contour et on défini la valeur nodata
 
-```for %%G IN (input\*.tif) DO (
+```
+for %%G IN (input\*.tif) DO (
 gdaltindex -t_srs EPSG:2154 index\%%~nG.shp %%G
-gdalwarp --config GDALWARP_IGNORE_BAD_CUTLINE YES -t_srs EPSG:2154 -dstnodata -q -cutline index\%%~nG.shp -crop_to_cutline -of GTiff %%G output\%%~nG.tif```
+gdalwarp --config GDALWARP_IGNORE_BAD_CUTLINE YES -t_srs EPSG:2154 -dstnodata -q -cutline index\%%~nG.shp -crop_to_cutline -of GTiff %%G output\%%~nG.tif
+```
 
 On construit le vrt
 
-```for %%i in (output\%%~nG.tif) do echo %%i >> index\liste.txt
-gdalbuildvrt -input_file_list index\liste.txt index\liste.vrt```
+```
+for %%i in (output\%%~nG.tif) do echo %%i >> index\liste.txt
+gdalbuildvrt -input_file_list index\liste.txt index\liste.vrt
+```
 
 Puis la pyramide
 
-```gdal_retile -v -levels 5 -ps 16384 16384 -s_srs EPSG:2154 -r bilinear -co COMPRESS=DEFLATE -co TILED=TRUE -co INTERLEAVE=BAND -co BLOCKXSIZE=256 -co BLOCKYSIZE=256 -targetDir pyr index\liste.vrt```
+```
+gdal_retile -v -levels 5 -ps 16384 16384 -s_srs EPSG:2154 -r bilinear -co COMPRESS=DEFLATE -co TILED=TRUE -co INTERLEAVE=BAND -co BLOCKXSIZE=256 -co BLOCKYSIZE=256 -targetDir pyr index\liste.vrt
+```
 
 ## Image mosaique <a id="mosa-"></a>
 
