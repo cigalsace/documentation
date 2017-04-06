@@ -13,27 +13,27 @@
 
 ## Avant-Propos <a id="avant-propos-"></a>
 
-La préparation de données Raster est fonction de compromis entre espace disque disponible, maturité des outils à disposition et public ciblé (performance et qualité de rendu).
+La préparation de données Raster est fonction de compromis entre espace disque disponible, des outils à disposition et des attentes du public ciblé (performance et qualité de rendu).
 
 Une donnée livrée est rarement directement prête pour être servie de manière optimisée en flux pour trois raisons :
 
 -	Les volumétries des données brutes peuvent se révélées très importantes et les espaces disques serveurs onéreux
 -	Les zones de bordure peuvent nécessiter une préparation particulière pour un affichage propre (canal alpha de transparence, footprint, nodata ou sld)
--	Modifier des paramètres avancés tels que le tuilage interne (inner tiling), les aperçus (overview) ou la taille des dalles (merge) peut influencer les temps de réponse.
+-	Modifier des paramètres avancés tels que le tuilage interne (inner tiling), les aperçus (overview) ou la taille des dalles (merge) influence les temps de réponse.
 
 Avec Geoserver l’administrateur de donnée dispose de toute une gamme de formats en entrée.
 
-Cette note a pour vocation de capitaliser les éléments justifiant les choix en matière de préparation de Raster sur la géoplateforme CIGAL.
+Ce guide a pour vocation de capitaliser les éléments justifiant les choix en matière de préparation de Raster sur la géoplateforme CIGAL.
 
 
 ## Compression raster <a id="compression-raster-"></a>
 
-Performances et volumétrie pourront fluctuer de manière importante selon le mode de compression retenu.
+Performances et volumétrie fluctuent de manière importante selon le mode de compression retenu.
 
 | Compression | Commentaire |
 |----------|--------------|
 |ecw|Avec ou sans perte. Format propriétaire qui nécessite une licence pour la publication web. Il ne sera pas traité dans la suite du document.|
-|Jp2000|Avec ou sans perte|
+|Jp2000|Avec ou sans perte. Mal supporté par Geoserver 2.8 il ne sera pas traité dans la suite du document. L'alternative j2k n'a pas été étudiée.|
 |tif LZW|Sans perte|
 |tif deflate|Sans perte|
 |tif jpeg|Avec perte|
@@ -44,13 +44,13 @@ A titre d’exemple ci-dessous les variations en volumétrie d’une ortho RVB �
 
 | Format                        | Taille proportion | Volume sur 1 département |
 |-------------------------------|-------------------|--------------------------|
-| tif(livraisonbrute)           | 100%              | 412Go                    |
-| tiftilingoverview             | 142%              | 585Go                    |
-| tiflzwtilingoverview          | 137%              | 565Go                    |
-| tifdeflatetilingoverview      | 110%              | 453Go                    |
-| tifdeflatealphatilingoverview | 119%              | 490Go                    |
-| tifjpegtilingoverview         | 27%               | 111Go                    |
-| tifjpegalphatilingoverview    | 40%               | 165Go                    |
+| tif (livraison brute)           | 100%              | 412Go                    |
+| tif tiling overview             | 142%              | 585Go                    |
+| tif lzw tiling overview          | 137%              | 565Go                    |
+| tif deflate tiling overview      | 110%              | 453Go                    |
+| tif deflate alpha tiling overview | 119%              | 490Go                    |
+| tif jpeg tiling overview         | 27%               | 111Go                    |
+| tif jpeg alpha tiling overview    | 40%               | 165Go                    |
 
 (Ces résultats ont été obtenus dans les taux de compression par défaut et en rajoutant les inner tiling et overview pour préparer à la publication)
 
@@ -68,7 +68,6 @@ De la même manière nous avons constaté dans nos tests que les overview extern
 
 Pour les scripts batch de préparation se référer à
 https://github.com/cigalsace/processes/tree/master/gdal
-
 
 ### Confrontation <a id="confrontation-"></a>
 
@@ -123,9 +122,33 @@ Les entrepots de type image mosaique réagissent mieux. De plus, ils proposent m
 https://osgeo-org.atlassian.net/browse/GEOS-6760?attachmentViewMode=list
 Dans le cas d'overview interne il n'est pas possible pour le moment d'appliquer un footprints couvrant des dalles non pleines. Fonctionnalité décrite ici
 http://docs.geoserver.org/2.8.x/en/user/tutorials/imagemosaic_footprint/imagemosaic_footprint.html#footprint-configured-with-footprints-shp
+Un contournement serait de passer par input transparent color (000000) avec NoData Value=0
 
-Enfin, appeler un WMS dans une autre projection différente de celle native de publication ne semble pas trop impactante par rapport aux temps de retour.
+Il faut savoir également que l'on ne peut pas supprimer proprement les overviews ce qui rendrait problématique les récupérations WCS dans d'autres projections.
 
+Enfin, appeler un WMS dans une projection différente de celle native de publication ne semble pas trop impactante par rapport aux temps de retour.
+
+
+Par contre sous Geoserver la qualité du rendu est dégradée par rapport à image pyramide car Geoserver récupère l'overview la plus proche pour reprojeter ce qui n'est pas idéal.
+
+Par exemple si dans un projet qgis en 3857 au 1/25000 je charge /mnt/geoserver_geodata/data/CIGAL/CIGAL_ORTHORVB_2015_ALSACE_TIF_L93/1025-6850_O.tif
+
+![2](https://cloud.githubusercontent.com/assets/5012040/20386096/5e3db672-acba-11e6-8ed2-e3e1870c9b06.png)
+
+Puis le WMS (cigal:CIGAL_ORTHORVB_2015_ALSACE_TIF_L93)
+
+![3](https://cloud.githubusercontent.com/assets/5012040/20386099/60098120-acba-11e6-9c38-cb750a1b81ab.png)
+
+De plus les appels à petite échelle sur une ortho départementale en image mosa sont vraiment peu performants malgré les overviews.
+
+En ce qui concerne les contours, la bande alpha prend de la place mais les contours sont mieux dessinés.
+On a constaté qu'en compression JPEG les contours avec la méthode input transparent donnaient des bordures de mauvaise qualité.
+
+![img1](img/bords_comp.png)
+
+De manière anecdotique, le format image pyramide apporte des défaut à très très grand échelle sur le sviewer (pas constaté sur mapfishapp)
+
+![img2](img/big_scale.png)
 
 ## Conclusions <a id="conclusions"></a>
 
@@ -134,9 +157,10 @@ Le tif non compressé est le format qui apporte les meilleures performances. Cep
 Dans le cas de la géoplateforme CIGAL nous retenons pour le moment les pistes suivantes:
 
 - Privilégier deflate à lzw
-- Image mosaique avec overview interne plutôt que image pyramide (pour des produits types orthophoto HR départementale) et travailler à faire fonctionner convenablement le footprints
+- Image mosaique ou image pyramide selon les cas avec input transparent pour les zones de bordure
+Voir https://github.com/cigalsace/documentation/tree/master/tuto_prepa_publication_raster
 - En général nous réservons la qualité optimale (sans perte) à la dernière ortho (par exemple la 2015) et les milésimes plus anciens, les produits dérivés (infrarouge…) sont compressées en JPEG
-- L'axe par téléchargement FTP des dalles type Open Data serait privélégié au développement du WCS consommateur pour les servers.
+- L'axe par téléchargement FTP des dalles type Open Data serait privélégié au détriment du WCS consommateur pour les servers.
 - Le l93 serait prioritaire comme format de publication.
 
 Resterait également:
@@ -144,5 +168,7 @@ Resterait également:
 - à jouer sur les pararamètres Geoserver
 http://fr.slideshare.net/geosolutions/geoserver-on-steroids-foss4g-2015
 (slide 11)
-- à exploiter Geowebcache WMTS dans les gridset les plus courament utilisés
-- à encourager pour les viewers les appels image/jpeg sur de petites tuiles.
+- à exploiter Geowebcache WMTS dans les gridset les plus couramment utilisés
+- à encourager pour les viewers les appels image/jpeg sur de petites tuiles
+- à tester dans Geoserver paramètre en-tête de chache de réponse (configuration HTTP). (après un premier affichage, tous les objets seront en mémoire dans le navigateur et seront affichés plus rapidement. Dans l'édition de la couche > publication, cochez En-tête de cache de réponse et indiquez un temps de mis en cache par exemple 3600 s.)
+https://agile-online.org/conference_paper/cds/agile_2012/proceedings/papers/paper_loechel_caching_techniques_for_high-performance_web_map_services_2012.pdf
