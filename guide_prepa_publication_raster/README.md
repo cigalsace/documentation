@@ -62,7 +62,7 @@ gdaladdo --config COMPRESS_OVERVIEW DEFLATE --config GDAL_TIFF_OVR_BLOCKSIZE 512
 
 Si l’on souhaite rajouter la bande alpha au fichier il faut prévoir environ 10% de place de stockage en plus
 
-A noter que nous ne considérons pas ici les possibilités de varier l’option PREDICTOR en horizontal ou floating qui donne de meilleurs résultats mais qui semble mal gérée par Geoserver 2.8
+A noter que nous ne considérons pas ici les possibilités de varier l’option PREDICTOR en horizontal ou floating qui donne de meilleurs résultats mais qui semble mal gérée par Geoserver 2.8 (edit d'après la liste Geoserver : predictor=3 n'est pas supporté du tout et type=2 ne supporte pas les 32 bit data).
 
 De la même manière nous avons constaté dans nos tests que les overview externes ne seraient pas supportées par Geoserver 2.8
 
