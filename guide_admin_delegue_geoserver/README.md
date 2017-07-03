@@ -149,7 +149,7 @@ Toujours dans le formulaire de la couche, lier le **service WMS** à la **métad
 
 ![gs6](img/gs6.png)
 
-Saisir à minima les formats txt/html et text/XML
+Saisir à minima les formats txt/html et text/XML (type TC211)
 
 L'URL de la métadonnée peut être retrouvée depuis le catalogue https://www.cigalsace.org/geonetwork/apps/georchestra/?hl=fre
 
