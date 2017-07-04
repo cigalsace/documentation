@@ -12,15 +12,16 @@
 
 Justification des choix dans https://github.com/cigalsace/documentation/tree/master/guide_prepa_publication_raster
 
-Eléments de comparaison entre les deux méthodes
+Eléments de comparaison entre les deux méthodes (de 1 à 5)
 
 | Eléments de comparaison sur une ortho départementale | Image mosaique | Image pyramide |
 |----------|------------|-----------|
-|performance à grande échelle |+2 |+1|
-|Ortho départementale performance à petite échelle|-1 |+1|
-|Qualité du rendu aux échelles intermédiaires|-1|+1|
-|Volume espace disque|||
-|Complexité de la préparation|-1||
+|performance à grande échelle |4 |3|
+|Ortho départementale performance à petite échelle|1 |4|
+|Qualité du rendu aux échelles intermédiaires|2|3|
+|Volume espace disque|3|2|
+|Complexité de la préparation|1|3|
+|Total|11|15|
 
 **Les dernières publications GéoGrandEst se font en image pyramide, le chapitre sur les images mosaique est laissé pour mémoire**
 
