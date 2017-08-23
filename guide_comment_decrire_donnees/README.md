@@ -61,6 +61,8 @@ Avant de poursuivre, vous devez disposer d'un identifiant et d'un mot de passe p
 
 ## Procédure <a id="procédure-"></a>
 
+:exclamation: **ATTENTION: il est conseillé d'utiliser les navigateurs FireFox ou Chrome dans une version récente. Les applications utilisées fonctionnent généralement pas ou mal sur Internet Explorer.**
+
 ### Placer les fichiers ressources sur le serveur CIGAL <a id="placer-les-fichiers-ressources-sur-le-serveur-cigal-"></a>
 
 Pour vous connecter à Pydio, rendez-vous à l'adresse : <https://www.cigalsace.org/files> Si vous n'êtes pas encore authentifié, saisissez votre identifiant et votre mot de passe avant de valider.
