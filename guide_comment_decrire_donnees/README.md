@@ -10,17 +10,17 @@
 	- [Fiche de métadonnées](#fiche-de-métadonnées-)
 - [Principes de base](#principes-de-base-)
 - [Procédure](#procédure-)
-	- [Placer les fichiers ressources sur le serveur CIGAL](#placer-les-fichiers-ressources-sur-le-serveur-cigal-)
+	- [Placer les fichiers ressources sur le serveur GéoGrandEst](#placer-les-fichiers-ressources-sur-le-serveur-cigal-)
 	- [Décrire le jeu de données](#décrire-le-jeu-de-données-)
 	- [Exporter la fiche descriptive au format XML](#exporter-la-fiche-descriptive-au-format-xml-)
-	- [Déposer la fiche au format XML sur le serveur CIGAL](#déposer-la-fiche-au-format-xml-sur-le-serveur-cigal-)
+	- [Déposer la fiche au format XML sur le serveur GéoGrandEst](#déposer-la-fiche-au-format-xml-sur-le-serveur-geograndest-)
 
 <!-- /TOC -->
 
 
 ## Contexte <a id="contexte-"></a>
 
-Vous ne disposez pas d'outil pour décrire vos données conformément aux obligations de la directive européenne Inspire, mais souhaitez faire connaître vos données en les référençant sur la plateforme CIGAL, ainsi que sur le géocatalogue national.
+Vous ne disposez pas d'outil pour décrire vos données conformément aux obligations de la directive européenne Inspire, mais souhaitez faire connaître vos données en les référençant sur la plateforme GéoGrandEst, ainsi que sur le géocatalogue national.
 
 
 ## Définitions <a id="définitions-"></a>
@@ -45,27 +45,27 @@ Ainsi, à l'issue de votre travail vous disposerez pour chacune de vos données 
 
 La description d'un jeu de données et sa publication se font en différentes étapes :
 
-1. Placer les fichiers ressources sur le serveur CIGAL
+1. Placer les fichiers ressources sur le serveur GéoGrandEst
 2. Décrire le jeu de données via un formulaire en ligne
 3. Exporter la fiche descriptive au format XML
-4. Placer la fiche au format XML sur le serveur CIGAL
+4. Placer la fiche au format XML sur le serveur GéoGrandEst
 
 Cette démarche s'appuie sur les outils suivants :
 
-- Pydio: <https://www.cigalsace.org/files> Il permet de déposer simplement des fichiers sur le serveur CIGAL pour les rendre accessibles via internet
-- mdEdit: <https://www.cigalsace.org/tools/mdEdit> Il permet de renseigner une fiche de description de données et de l'enregistrer au format XML
+- Pydio: <https://www.geograndest.fr/files> Il permet de déposer simplement des fichiers sur le serveur GéoGrandEst pour les rendre accessibles via internet
+- mdEdit: <https://www.geograndest.fr/tools/mdEdit> Il permet de renseigner une fiche de description de données et de l'enregistrer au format XML
 
-Avant de poursuivre, vous devez disposer d'un identifiant et d'un mot de passe pour vous connecter à la plateforme CIGAL, ainsi que d'un espace de stockage sur Pydio.
-**Si ce n'est pas le cas, les chefs de projet CIGAL sont à votre disposition <mailto:contact@cigalsace.org>.**
+Avant de poursuivre, vous devez disposer d'un identifiant et d'un mot de passe pour vous connecter à la plateforme GéoGrandEst, ainsi que d'un espace de stockage sur Pydio.
+**Si ce n'est pas le cas, les chefs de projet GéoGrandEst sont à votre disposition <mailto:contact@geograndest.fr>.**
 
 
 ## Procédure <a id="procédure-"></a>
 
 :exclamation: **ATTENTION: il est conseillé d'utiliser les navigateurs FireFox ou Chrome dans une version récente. Les applications utilisées fonctionnent généralement pas ou mal sur Internet Explorer.**
 
-### Placer les fichiers ressources sur le serveur CIGAL <a id="placer-les-fichiers-ressources-sur-le-serveur-cigal-"></a>
+### Placer les fichiers ressources sur le serveur GéoGrandEst <a id="placer-les-fichiers-ressources-sur-le-serveur-geograndest-"></a>
 
-Pour vous connecter à Pydio, rendez-vous à l'adresse : <https://www.cigalsace.org/files> Si vous n'êtes pas encore authentifié, saisissez votre identifiant et votre mot de passe avant de valider.
+Pour vous connecter à Pydio, rendez-vous à l'adresse : <https://www.geograndest.fr/files> Si vous n'êtes pas encore authentifié, saisissez votre identifiant et votre mot de passe avant de valider.
 
 ![login](img/login.jpg)
 
@@ -79,7 +79,7 @@ Il vous est ensuite possible :
 
 ![pydio2](img/pydio2.jpg)
 
-Les fichiers ainsi déposés sur la plateforme CIGAL sont alors disponibles via une adresse du type « <https://www.cigalsace.org/metadata/ORG/REP/ressource.ext> », où :
+Les fichiers ainsi déposés sur la plateforme GéoGrandEst sont alors disponibles via une adresse du type « <https://www.geograndest.fr/metadata/ORG/REP/ressource.ext> », où :
 - « ORG » est le nom de la structure ou son sigle (identique au « ORG » du nom de dépôt Pydio)
 - « REP » est, le cas échéant, le chemin vers les fichiers dans le dépôt sur Pydio
 - « ressource.ext » est le nom du fichier de ressource concerné.
@@ -91,21 +91,21 @@ Les fichiers ainsi déposés sur la plateforme CIGAL sont alors disponibles via 
 
 ### Décrire le jeu de données <a id="décrire-le-jeu-de-données-"></a>
 
-La description du jeu de données peut être réalisée assez simplement directement en ligne via mdEdit. L'accès à cette application ne nécessite pas d'authentification. Il vous suffit de vous rendre à l'adresse suivante : <https://www.cigalsace.org/tools/mdEdit/>
+La description du jeu de données peut être réalisée assez simplement directement en ligne via mdEdit. L'accès à cette application ne nécessite pas d'authentification. Il vous suffit de vous rendre à l'adresse suivante : <https://www.geograndest.fr/tools/mdEdit/>
 
 _A la première connexion, en cas de problème d'affichage, il peut être nécessaire de rafraîchir la page !_
 
 ![mdedit1](img/mdedit1.jpg)
 
-Il vous suffit alors de compléter le formulaire à partir des informations dont vous disposez sur le jeu de données. Pour plus de détail sur les informations attendues, vous pouvez vous rapportez au « Guide simplifié de saisie des métadonnées CIGAL ».
+Il vous suffit alors de compléter le formulaire à partir des informations dont vous disposez sur le jeu de données. Pour plus de détail sur les informations attendues, vous pouvez vous rapportez au « Guide simplifié de saisie des métadonnées GéoGrandEst ».
 
 **_Liens vers les ressources :_**
-_Les liens vers les ressources déposées sur la plateforme via Pydio doivent être renseignés selon une URL de la forme « <https://www.cigalsace.org/metadata/ORG/REP/ressource.ext> » comme décrit précédemment._
+_Les liens vers les ressources déposées sur la plateforme via Pydio doivent être renseignés selon une URL de la forme « <https://www.geograndest.fr/metadata/ORG/REP/ressource.ext> » comme décrit précédemment._
 
-Pour vous accompagner dans la saisie des informations vous pouvez vous appuyer sur les guides du GT métadonnées CIGAL
-https://www.cigalsace.org/portail/fr/doc/353/guide-cigal-simplifie-pour-saisie-metadonnees-description-donnees-geographiques
+Pour vous accompagner dans la saisie des informations vous pouvez vous appuyer sur les guides du GT métadonnées GéoGrandEst
+https://www.geograndest.fr/portail/fr/doc/353/guide-cigal-simplifie-pour-saisie-metadonnees-description-donnees-geographiques
 
-https://www.cigalsace.org/portail/fr/system/files/document/2013-11/guide-cigal_descriptiondonneesgeo_v1.0_120807.pdf
+https://www.geograndest.fr/portail/fr/system/files/document/2013-11/guide-cigal_descriptiondonneesgeo_v1.0_120807.pdf
 
 ### Exporter la fiche descriptive au format XML <a id="exporter-la-fiche-descriptive-au-format-xml-"></a>
 
@@ -119,11 +119,11 @@ mdEdit permet également de recharger une fiche descriptive au format XML :
 
 Il est ainsi possible de créer une fiche partiellement remplie et de la réutiliser comme un modèle pour saisir de nouvelles fiches.
 
-Les utilisateurs authentifiés sur la Géoplateforme CIGAL et disposant des droits d'administration de leur catalogue peuvent téléverser les fiches XML créées directement sur leur espace Pydio à partir de le fenêtre d'export.
+Les utilisateurs authentifiés sur la Géoplateforme GéoGrandEst et disposant des droits d'administration de leur catalogue peuvent téléverser les fiches XML créées directement sur leur espace Pydio à partir de le fenêtre d'export.
 
 
-### Déposer la fiche au format XML sur le serveur CIGAL <a id="déposer-la-fiche-au-format-xml-sur-le-serveur-cigal-"></a>
+### Déposer la fiche au format XML sur le serveur CIGAL <a id="déposer-la-fiche-au-format-xml-sur-le-serveur-geograndest-"></a>
 
-Le dépôt du fichier XML sur le serveur CIGAL se fait via Pydio selon le même principe que le dépôt des fichiers ressources expliqué ci-dessus.
+Le dépôt du fichier XML sur le serveur GéoGrandEst se fait via Pydio selon le même principe que le dépôt des fichiers ressources expliqué ci-dessus.
 
-Depuis la version 0.14.11 de mdEdit, cet export peut être réalisé directement à partir de la fenêtre d'export dans mdEdit. Pour cela, l'utilisateur doit être authentifié sur la Géoplateforme CIGAL et disposer des droits d'administration de son catalogue de métadonnées.
+Depuis la version 0.14.11 de mdEdit, cet export peut être réalisé directement à partir de la fenêtre d'export dans mdEdit. Pour cela, l'utilisateur doit être authentifié sur la Géoplateforme GéoGrandEst et disposer des droits d'administration de son catalogue de métadonnées.
