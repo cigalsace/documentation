@@ -1,6 +1,6 @@
-**Coopération pour l'Information Géographique en Alsace**
+**Coopération pour l'Information Géographique en Grand Est**
 
-# Comment publier votre couche SIG sur la géoplateforme CIGAL ?
+# Comment publier votre couche SIG sur la géoplateforme GéoGrandEst ?
 
 <!-- TOC depthFrom:2 depthTo:3 withLinks:1 updateOnSave:0 orderedList:0 -->
 <a id="sommaire-"></a>
@@ -22,14 +22,14 @@
 
 ## Contexte <a id="contexte-"></a>
 
-Vous êtes adhérant CIGAL et ne disposez pas d'outil pour publier des flux WMS et WFS conformément à la directive INSPIRE. Votre donnée est déjà décrite dans le catalogue CIGAL conformément à https://www.cigalsace.org/portail/fr/doc/774/guide-comment-decrire-simplement-vos-donnees-geographiques-et-rendre-consultables-sur
+Vous êtes adhérant GéoGrandEst et ne disposez pas d'outil pour publier des flux WMS et WFS conformément à la directive INSPIRE. Votre donnée est déjà décrite dans le catalogue GéoGrandEst conformément à https://www.geograndest.fr/portail/fr/doc/774/guide-comment-decrire-simplement-vos-donnees-geographiques-et-rendre-consultables-sur
 
 
 ## Définitions <a id="définitions-"></a>
 
 ### Geoserver et administration déléguée<a id="gs-admin-delegue-"></a>
 
-Geoserver est un serveur cartographique permettant aux utilisateurs de partager et de modifier des données géographiques en respectant les normes et standards d'interopérabilité. Geoserver est un module de l'outil d'IDS geOrchestra sur lequel se base la Géoplateforme CIGAL. **Les services de Geoserver sont gérés par un administrateur de donnée qui a la possibilité de déléguer des droits à un partenaire sur un espace de travail qui lui est dédié.** Dans cet espace, le partenaire que l'on nommera "administrateur délégué" a la possibilité de créer des flux WMS couplés WFS ainsi que de mettre en forme les styles par défaut SLD pour les WMS.
+Geoserver est un serveur cartographique permettant aux utilisateurs de partager et de modifier des données géographiques en respectant les normes et standards d'interopérabilité. Geoserver est un module de l'outil d'IDS geOrchestra sur lequel se base la plateforme GéoGrandEst. **Les services de Geoserver sont gérés par un administrateur de donnée qui a la possibilité de déléguer des droits à un partenaire sur un espace de travail qui lui est dédié.** Dans cet espace, le partenaire que l'on nommera "administrateur délégué" a la possibilité de créer des flux WMS couplés WFS ainsi que de mettre en forme les styles par défaut SLD pour les WMS.
 
 ### WMS <a id="wms-"></a>
 
@@ -39,16 +39,16 @@ Pour de plus amples informations https://tice.agrocampus-ouest.fr/mod/page/view.
 
 ### WFS <a id="wfs-"></a>
 
-Le **Web Feature Service** est un standard OGC de Service Web dédié à la publication d’objets géographiques vecteurs (lignes, points, polygones...). L'interface WFS permet le téléchargement et la manipulation des données. La fonctionnalité d'édition WFS-T n'est pas activée par défaut sur la Géoplateforme CIGAL.
+Le **Web Feature Service** est un standard OGC de Service Web dédié à la publication d’objets géographiques vecteurs (lignes, points, polygones...). L'interface WFS permet le téléchargement et la manipulation des données. La fonctionnalité d'édition WFS-T n'est pas activée par défaut sur la plateforme GéoGrandEst.
 
 Pour de plus amples informations https://tice.agrocampus-ouest.fr/mod/page/view.php?id=27489
 
 ### SLD <a id="sld-"></a>
 
 Le **Style Layer Descriptor** est un format interopérable pour du stylage de données géographiques.
-Il existe toute une série d'interfaces graphiques pour créer des SLD comme le visualiseur CIGAL ou QGIS.
+Il existe toute une série d'interfaces graphiques pour créer des SLD comme le visualiseur GéoGrandEst ou QGIS.
 
-L'outil styler du visualiseur CIGAL https://www.cigalsace.org/mapfishapp/ dans
+L'outil styler du visualiseur GéoGrandEst https://www.geograndest.fr/mapfishapp/ dans
 
 *Couches disponibles/Actions/Éditer la symbologie/*
 
@@ -68,7 +68,7 @@ Sous QGIS
 
 ## Principes de base <a id="principes-de-base-"></a>
 
-Il est dorénavant possible sur la Géoplateforme CIGAL à un administrateur délégué de disposer de toute la chaîne de publication pour créer ses couches vecteur dans un espace de travail qui lui est dédié.
+Il est dorénavant possible sur la plateforme GéoGrandEst à un administrateur délégué de disposer de toute la chaîne de publication pour créer ses couches vecteur dans un espace de travail qui lui est dédié.
 
  :warning: **Bien respecter les règles de nommage et vérifier que les styles et les couches poussées sur Geoserver soient fonctionnels.**
 
@@ -81,19 +81,19 @@ Le principe est le suivant:
 
 Cette démarche s'appuie sur les outils suivants :
 
-- Pydio: <https://www.cigalsace.org/files/?login> pour déposer ses données sur le serveur
-- Geoserver: <https://www.cigalsace.org/geoserver/web/?login> pour créer ses couches
-- Mapfishapp: <https://www.cigalsace.org/mapfishapp> pour visualiser et créer les styles
+- Pydio: <https://www.geograndest.fr/files/?login> pour déposer ses données sur le serveur
+- Geoserver: <https://www.geograndest.fr/geoserver/web/?login> pour créer ses couches
+- Mapfishapp: <https://www.geograndest.fr/mapfishapp> pour visualiser et créer les styles
 
-Avant de poursuivre, vous devez disposer d'un identifiant et d'un mot de passe pour vous connecter à la plateforme CIGAL. Les administrateurs doivent vous mettre en place préalablement un espace de stockage sur Pydio et un espace de travail Geoserver.
+Avant de poursuivre, vous devez disposer d'un identifiant et d'un mot de passe pour vous connecter à la plateforme GéoGrandEst. Les administrateurs doivent vous mettre en place préalablement un espace de stockage sur Pydio et un espace de travail Geoserver.
 
- :envelope: **Si ce n'est pas le cas, contacter <mailto:contact@cigalsace.org>.**
+ :envelope: **Si ce n'est pas le cas, contacter <mailto:contact@geograndest.fr>.**
 
 ## Procédure <a id="procédure-"></a>
 
 ### Dépôt des données SHP via Pydio <a id="depot-shp-via-pydio-"></a>
 
-Pour vous connecter à Pydio, rendez-vous à l'adresse : <https://www.cigalsace.org/files/?login> saisissez votre identifiant et votre mot de passe avant de valider.
+Pour vous connecter à Pydio, rendez-vous à l'adresse : <https://www.geograndest.fr/files/?login> saisissez votre identifiant et votre mot de passe avant de valider.
 
 ![login](img/login.jpg)
 
@@ -110,7 +110,7 @@ Il vous est ensuite possible de déposer des fichiers par simple glisser/dépose
 
 ### Création de la couche WMS/WFS sous Geoserver <a id="creation-layer-geoserver-"></a>
 
-Pour vous connecter à Geoserver, rendez-vous à l'adresse : <https://www.cigalsace.org/geoserver/web/?login>
+Pour vous connecter à Geoserver, rendez-vous à l'adresse : <https://www.geograndest.fr/geoserver/web/?login>
 Vous devriez normalement disposer des fonctionnalités suivantes dans le **menu gauche**
 
 ![gs1](img/gs1.png)
@@ -151,10 +151,10 @@ Toujours dans le formulaire de la couche, lier le **service WMS** à la **métad
 
 Saisir à minima les formats text/html et text/xml (type TC211) de la façon suivante, en remplaçant le paramètre "uuid" de l'URL par la bonne valeur:
 
-- TC211 	| text/xml 	| https://www.cigalsace.org/geonetwork/srv/fre/xml_iso19139?uuid=FR-226-700-011-201711271604
-- TC211 	| text/html 	| https://www.cigalsace.org/geonetwork/apps/georchestra/?uuid=FR-226-700-011-201711271604
+- TC211 	| text/xml 	| https://www.geograndest.fr/geonetwork/srv/fre/xml_iso19139?uuid=FR-226-700-011-201711271604
+- TC211 	| text/html 	| https://www.geograndest.fr/geonetwork/apps/georchestra/?uuid=FR-226-700-011-201711271604
 
-L'URL (format HTML) et l'identifiant (uuid) de la métadonnée peuventt être retrouvée depuis le catalogue https://www.cigalsace.org/geonetwork/apps/georchestra/?hl=fre
+L'URL (format HTML) et l'identifiant (uuid) de la métadonnée peuventt être retrouvée depuis le catalogue https://www.geograndest.fr/geonetwork/apps/georchestra/?hl=fre
 
 Ouvrir la fiche et copier le lien en haut à droite
 
@@ -178,18 +178,18 @@ Pour en être bien certain, dans le menu gauche "Prévisualisation de la couche"
 Vous disposez ainsi d'un aperçu des données dans Open Layer avec la possibilité d'interroger les objets en cliquant dessus.
 
 Voici un exemple de lien de prévisualisation
-https://www.cigalsace.org/geoserver/SLM67/wms?service=WMS&version=1.1.0&request=GetMap&layers=SLM67:SLM67_COMMUNES_COL_L93&styles=&bbox=1045480.4636068232,6831934.8059389,1056136.5844213301,6849241.151293313&width=472&height=768&srs=EPSG:2154&format=application/openlayers
+https://www.geograndest.fr/geoserver/SLM67/wms?service=WMS&version=1.1.0&request=GetMap&layers=SLM67:SLM67_COMMUNES_COL_L93&styles=&bbox=1045480.4636068232,6831934.8059389,1056136.5844213301,6849241.151293313&width=472&height=768&srs=EPSG:2154&format=application/openlayers
 
 ### Exporter un style SLD <a id="creation-du-style-sld-"></a>
 
-Rendez vous sur le visualiseur CIGAL Mapfishapp https://www.cigalsace.org/mapfishapp
+Rendez vous sur le visualiseur GéoGrandEst Mapfishapp https://www.geograndest.fr/mapfishapp
 
 En bas à droite "Ajouter des couches"
 
 ![mapfish_couche](img/mapfish_couche.png)
 
 Dans l'onglet serveur OGC, saisir votre adresse WMS en remplaçant **xxx** par le nom de votre espace de travail Geoserver
-https://www.cigalsace.org/geoserver/**xxx**/ows
+https://www.geograndest.fr/geoserver/**xxx**/ows
 
 Touche "Entrée" puis tirer la couche via le bouton "Ajouter"
 
@@ -236,7 +236,7 @@ Par exemple
 
 >Inventaire LIDAR PAIR 2012
 http://www.pair-archeologie.fr/
-https://www.cigalsace.org/metadata/CIGAL/Logo/Logo_PAIR.jpg
+https://www.geograndest.fr/metadata/geograndest/Logo/Logo_PAIR.jpg
 image/jpeg
 120
 45
