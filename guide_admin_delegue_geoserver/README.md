@@ -152,7 +152,7 @@ Toujours dans le formulaire de la couche, lier le **service WMS** à la **métad
 Saisir à minima les formats text/html et text/xml (type TC211) de la façon suivante, en remplaçant le paramètre "uuid" de l'URL par la bonne valeur:
 
 - TC211 	| text/xml 	| https://www.geograndest.fr/geonetwork/srv/fre/xml_iso19139?uuid=FR-226-700-011-201711271604
-- TC211 	| text/html 	| https://www.geograndest.fr/geonetwork/apps/georchestra/?uuid=FR-226-700-011-201711271604
+- TC211 	| text/html 	| https://www.geograndest.fr/geonetwork/srv/fre/catalog.search#/metadata/FR-226-700-011-201711271604
 
 L'URL (format HTML) et l'identifiant (uuid) de la métadonnée peuventt être retrouvée depuis le catalogue https://www.geograndest.fr/geonetwork/apps/georchestra/?hl=fre
 
@@ -178,7 +178,7 @@ Pour en être bien certain, dans le menu gauche "Prévisualisation de la couche"
 Vous disposez ainsi d'un aperçu des données dans Open Layer avec la possibilité d'interroger les objets en cliquant dessus.
 
 Voici un exemple de lien de prévisualisation
-https://www.geograndest.fr/geoserver/SLM67/wms?service=WMS&version=1.1.0&request=GetMap&layers=SLM67:SLM67_COMMUNES_COL_L93&styles=&bbox=1045480.4636068232,6831934.8059389,1056136.5844213301,6849241.151293313&width=472&height=768&srs=EPSG:2154&format=application/openlayers
+https://www.geograndest.fr/geoserver/slm67/wms?service=WMS&version=1.1.0&request=GetMap&layers=SLM67:SLM67_COMMUNES_COL_L93&styles=&bbox=1045480.4636068232,6831934.8059389,1056136.5844213301,6849241.151293313&width=472&height=768&srs=EPSG:2154&format=application/openlayers
 
 ### Exporter un style SLD <a id="creation-du-style-sld-"></a>
 
