@@ -1,6 +1,4 @@
-**Coopération pour l'Information Géographique en Alsace**
-
-# Comment décrire simplement vos données géographiques et les rendre consultables sur la plateforme CIGAL ?
+# Comment décrire simplement vos données géographiques et les rendre consultables sur la plateforme GéoGrandEst ?
 
 <!-- TOC depthFrom:2 depthTo:3 withLinks:1 updateOnSave:0 orderedList:0 -->
 
@@ -53,7 +51,7 @@ La description d'un jeu de données et sa publication se font en différentes é
 Cette démarche s'appuie sur les outils suivants :
 
 - Pydio: <https://www.geograndest.fr/files> Il permet de déposer simplement des fichiers sur le serveur GéoGrandEst pour les rendre accessibles via internet
-- mdEdit: <https://www.geograndest.fr/tools/mdEdit> Il permet de renseigner une fiche de description de données et de l'enregistrer au format XML
+- mdEdit: <https://www.geograndest.fr/tools/mdedit2> Il permet de renseigner une fiche de description de données et de l'enregistrer au format XML
 
 Avant de poursuivre, vous devez disposer d'un identifiant et d'un mot de passe pour vous connecter à la plateforme GéoGrandEst, ainsi que d'un espace de stockage sur Pydio.
 **Si ce n'est pas le cas, les chefs de projet GéoGrandEst sont à votre disposition <mailto:contact@geograndest.fr>.**
@@ -91,7 +89,7 @@ Les fichiers ainsi déposés sur la plateforme GéoGrandEst sont alors disponibl
 
 ### Décrire le jeu de données <a id="décrire-le-jeu-de-données-"></a>
 
-La description du jeu de données peut être réalisée assez simplement directement en ligne via mdEdit. L'accès à cette application ne nécessite pas d'authentification. Il vous suffit de vous rendre à l'adresse suivante : <https://www.geograndest.fr/tools/mdEdit/>
+La description du jeu de données peut être réalisée assez simplement directement en ligne via mdEdit. L'accès à cette application ne nécessite pas d'authentification. Il vous suffit de vous rendre à l'adresse suivante : <https://www.geograndest.fr/tools/mdedit2/>
 
 _A la première connexion, en cas de problème d'affichage, il peut être nécessaire de rafraîchir la page !_
 
@@ -122,7 +120,7 @@ Il est ainsi possible de créer une fiche partiellement remplie et de la réutil
 Les utilisateurs authentifiés sur la Géoplateforme GéoGrandEst et disposant des droits d'administration de leur catalogue peuvent téléverser les fiches XML créées directement sur leur espace Pydio à partir de le fenêtre d'export.
 
 
-### Déposer la fiche au format XML sur le serveur CIGAL <a id="déposer-la-fiche-au-format-xml-sur-le-serveur-geograndest-"></a>
+### Déposer la fiche au format XML sur le serveur GéoGrandEst <a id="déposer-la-fiche-au-format-xml-sur-le-serveur-geograndest-"></a>
 
 Le dépôt du fichier XML sur le serveur GéoGrandEst se fait via Pydio selon le même principe que le dépôt des fichiers ressources expliqué ci-dessus.
 
