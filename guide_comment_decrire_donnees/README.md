@@ -124,4 +124,4 @@ Les utilisateurs authentifiés sur la Géoplateforme GéoGrandEst et disposant d
 
 Le dépôt du fichier XML sur le serveur GéoGrandEst se fait via Pydio selon le même principe que le dépôt des fichiers ressources expliqué ci-dessus.
 
-Depuis la version 0.14.11 de mdEdit, cet export peut être réalisé directement à partir de la fenêtre d'export dans mdEdit. Pour cela, l'utilisateur doit être authentifié sur la Géoplateforme GéoGrandEst et disposer des droits d'administration de son catalogue de métadonnées.
+Pour tout complément d'information ou si vous avez besoin d'aide, une seule adresse: contact@geograndest.fr
