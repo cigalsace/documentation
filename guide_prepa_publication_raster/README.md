@@ -23,7 +23,7 @@ Une donnée livrée est rarement directement prête pour être servie de manièr
 
 Avec Geoserver l’administrateur de donnée dispose de toute une gamme de formats en entrée.
 
-Ce guide a pour vocation de capitaliser les éléments justifiant les choix en matière de préparation de Raster sur la géoplateforme CIGAL.
+Ce guide a pour vocation de capitaliser les éléments justifiant les choix en matière de préparation de Raster sur la géoplateforme GéoGrandEst.
 
 
 ## Compression raster <a id="compression-raster-"></a>
@@ -73,14 +73,11 @@ https://github.com/cigalsace/processes/tree/master/gdal
 
 D’après
 
-http://geoserver.geo-solutions.it/edu/en/enterprise/index.html
+* http://geoserver.geo-solutions.it/edu/en/enterprise/index.html
+* https://wiki.osgeo.org/wiki/Banc_d'essai_comparatif
+* http://www.digital-geography.com/geotiff-compression-comparison/#.V616dTUl8cN
 
-https://wiki.osgeo.org/wiki/Banc_d'essai_comparatif
-
-http://www.digital-geography.com/geotiff-compression-comparison/#.V616dTUl8cN
-
-Ainsi ques des tests basiques jmeter
-https://github.com/cigalsace/processes/tree/master/jmeter
+Ainsi ques des tests basiques jmeter: https://github.com/cigalsace/processes/tree/master/jmeter
 
 Dans l'ordre des cartouches:
 
@@ -93,19 +90,19 @@ Dans l'ordre des cartouches:
 |tifa jpeg|2.8|mosa overview inner tiling 3948|
 |tifa deflate|7.5|pyramid inner tiling 3948|
 
-https://www.cigalsace.org/geoserver/test_public/ows?SERVICE=WMS&VERSION=1.3.0&FORMAT=image/jpeg&REQUEST=GetMap&SRS=EPSG:3948
+https://www.geograndest.fr/geoserver/test_public/ows?SERVICE=WMS&VERSION=1.3.0&FORMAT=image/jpeg&REQUEST=GetMap&SRS=EPSG:3948
 ![graphique agrege](https://cloud.githubusercontent.com/assets/5012040/17619503/077ddd88-6086-11e6-97b3-2818cd9569cb.png)
 ![graphique evolution temps de reponses](https://cloud.githubusercontent.com/assets/5012040/17619505/098a7f6e-6086-11e6-990d-d05a0e2176f7.png)
 
-https://www.cigalsace.org/geoserver/test_public/ows?SERVICE=WMS&VERSION=1.3.0&FORMAT=image/png&REQUEST=GetMap&SRS=EPSG:3948
+https://www.geograndest.fr/geoserver/test_public/ows?SERVICE=WMS&VERSION=1.3.0&FORMAT=image/png&REQUEST=GetMap&SRS=EPSG:3948
 ![graphique agrege](https://cloud.githubusercontent.com/assets/5012040/17619625/e7af51f2-6086-11e6-8103-fa08c6535ff3.png)
 ![graphique evolution temps de reponses](https://cloud.githubusercontent.com/assets/5012040/17619629/ebb7d490-6086-11e6-8f0d-50d98ca15a6a.png)
 
-https://www.cigalsace.org/geoserver/test_public/ows?SERVICE=WMS&VERSION=1.3.0&FORMAT=image/jpeg&REQUEST=GetMap&SRS=EPSG:3857
+https://www.geograndest.fr/geoserver/test_public/ows?SERVICE=WMS&VERSION=1.3.0&FORMAT=image/jpeg&REQUEST=GetMap&SRS=EPSG:3857
 ![graphique agrege](https://cloud.githubusercontent.com/assets/5012040/17619640/fe60e1fe-6086-11e6-8a21-1d55841417ea.png)
 ![graphique evolution temps de reponses](https://cloud.githubusercontent.com/assets/5012040/17619641/ffcc706c-6086-11e6-9b38-5de6a2dd2185.png)
 
-https://www.cigalsace.org/geoserver/test_public/ows?SERVICE=WMS&VERSION=1.3.0&FORMAT=image/png&REQUEST=GetMap&SRS=EPSG:3948
+https://www.geograndest.fr/geoserver/test_public/ows?SERVICE=WMS&VERSION=1.3.0&FORMAT=image/png&REQUEST=GetMap&SRS=EPSG:3948
 ![graphique agrege](https://cloud.githubusercontent.com/assets/5012040/17619644/067be5aa-6087-11e6-86d0-a0ccb603d50e.png)
 ![graphique evolution temps de reponses](https://cloud.githubusercontent.com/assets/5012040/17619646/07e746a0-6087-11e6-9ddd-501b6081d562.png)
 
@@ -127,7 +124,6 @@ Un contournement serait de passer par input transparent color (000000) avec NoDa
 Il faut savoir également que l'on ne peut pas supprimer proprement les overviews ce qui rendrait problématique les récupérations WCS dans d'autres projections.
 
 Enfin, appeler un WMS dans une projection différente de celle native de publication ne semble pas trop impactante par rapport aux temps de retour.
-
 
 Par contre sous Geoserver la qualité du rendu est dégradée par rapport à image pyramide car Geoserver récupère l'overview la plus proche pour reprojeter ce qui n'est pas idéal.
 
